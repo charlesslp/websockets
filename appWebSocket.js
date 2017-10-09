@@ -34,6 +34,7 @@ app.get("/", function(req, res){
 
 var sockets_juego = [];
 var sockets_users = [];
+var ids_users = [];
 var userID = 0;
 
 io.on('connection', function(socket){
@@ -50,7 +51,7 @@ io.on('connection', function(socket){
 
 	socket.emit("ID", rand);
 
-	socket.emit("conectado", rand);
+	socket.emit("conectado");
 
 	socket.on("recibida_conn", function(id_nuevo){
 		sockets_juego[id_nuevo] = socket;
@@ -58,22 +59,33 @@ io.on('connection', function(socket){
 		rand = id_nuevo;
 	});
 
-	socket.on("press_key", function(array){
-		if(sockets_juego[array[1]])
-			sockets_juego[array[1]].emit('press', array[0]);
-	});
-
 	socket.on("comprueba", function(n){
 		delete sockets_juego[rand]; //Este evento lo ha enviado un usuario, por lo tanto queda comprobado que este socket no es de un juego
 		if(sockets_juego[n]){
 			sockets_users[userID] = socket;
+			if(!ids_users[n])
+				ids_users[n] = [];
+			ids_users[n].push(userID);
+			socket.emit("checked", userID);
 			userID++;
-			socket.emit("checked", true);
-			sockets_juego[n].emit("start");
 		}
 		else
-			socket.emit("checked", false);
+			socket.emit("checked", -1);
 	});
+
+	socket.on("start", function(list){
+		sockets_juego[list.id_juego].emit(list.start);
+	});
+
+
+
+	socket.on("press_key", function(array){
+		if(sockets_juego[array.id_juego]){
+			var array_data = {userdata: array, ids_users: ids_users[array.id_juego]};
+			sockets_juego[array.id_juego].emit('press', array_data);
+		}
+	});
+
 
 	socket.on('disconnect', function () {
 		console.log('deleted: ' + rand);
@@ -88,5 +100,5 @@ io.on('connection', function(socket){
 
 //------------------------------------------------------------------------------------------------------------
 server.listen(4000, function() {
-    console.log("Servidor arrancado en el puerto 4000");
+	console.log("Servidor arrancado en el puerto 4000");
 });

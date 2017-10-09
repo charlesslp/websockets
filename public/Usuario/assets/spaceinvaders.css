@@ -25,21 +25,36 @@
 }
 
 .two_btn_v{
-	margin-top: 5vh;
-	margin-left: 15%;
-	width: 65%;
-	height: 40vh;
+	background-size: 100% 40vh;
+    background-repeat: no-repeat;
+    margin-top: 8%;
+    margin-left: 16%;
+    width: 70%;
+    height: 40vh;
+    display: none;
+    transform: rotate(90deg);
+}
+
+.two_btn_h{
+	background-size: 100% 70vh;
+    background-repeat: no-repeat;
+	margin-top: 10%;
+	margin-left: 5%;
+	width: 40%;
+	height: 70vh;
 	display: none;
+	float: left;
 }
 
 .three_btn_v{
-	background-size: 100% 27vh;
+	background-size: 100% 40vh;
     background-repeat: no-repeat;
-	margin-top: 10%;
-	margin-left: 10%;
-	width: 75%;
-	height: 27vh;
-	display: none;
+    margin-bottom: -15%;
+    margin-left: 26%;
+    width: 45%;
+    height: 40vh;
+    display: none;
+    transform: rotate(90deg);
 }
 
 .three_btn_h{
@@ -53,15 +68,31 @@
 	float: left;
 }
 
-#btn_play{
+#btn_play_SI{
 	background-image: url(play.png);
 }
-#btn_shoot{
+#btn_shoot_SI{
 	background-image: url(shoot.png);
 }
-#btn_left{
+#btn_left_SI{
 	background-image: url(left.png);
 }
-#btn_right{
+#btn_right_SI{
 	background-image: url(right.png);
+}
+
+#btn_play_PG{
+	background-image: url(play.png);
+}
+#btn_up_PG{
+	background-image: url(left.png);
+}
+#btn_down_PG{
+	background-image: url(right.png);
+}
+#btn_SI_MENU{
+	background-image: url(play.png);
+}
+#btn_PG_MENU{
+	background-image: url(play.png);
 }

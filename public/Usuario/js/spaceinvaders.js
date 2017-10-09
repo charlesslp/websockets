@@ -1,31 +1,30 @@
 
-var id_juego;
 var play, shoot, left, right;
 
 function press(key){
-	var array = [key, id_juego]
-	console.log(key);
+	var array = {key: key, id_juego: id_juego, userID: userID};
+	console.log(array.key);
 	socket.emit('press_key', array);
 }
 
 
 function ini_spaceinvaders(){
 
-	play = document.getElementById("btn_play");
-	shoot = document.getElementById("btn_shoot");
-	left = document.getElementById("btn_left");
-	right = document.getElementById("btn_right");
+	play = document.getElementById("btn_play_SI");
+	shoot = document.getElementById("btn_shoot_SI");
+	left = document.getElementById("btn_left_SI");
+	right = document.getElementById("btn_right_SI");
 
 	socket_spaceinvaders();
 
 	window.addEventListener('resize', function() {
-		resize();
+		resize_spaceinvaders();
 	});
 
-	resize();
+	resize_spaceinvaders();
 }
 
-function resize(){
+function resize_spaceinvaders(){
 	if(play.style.display === 'none'){
 		if($(window).width() >= $(window).height()){
 			if(shoot.classList.contains('three_btn_v')){
@@ -75,9 +74,9 @@ function resize(){
 
 function socket_spaceinvaders(){
 
-	socket.on("checked", function (correcto){
+	//socket.on("checked", function (correcto){
 
-		if(correcto){
+		//if(correcto){
 			document.getElementById("form_num").style.display = 'none';
 
 			play.style.display = 'block';
@@ -85,17 +84,17 @@ function socket_spaceinvaders(){
 				play.style.backgroundImage = "url(Usuario/assets/play_press.png)";
 			}, false);
 			play.addEventListener("touchend", function(){
-				press("play");
+				press("play_SI");
 				play.style.display = 'none';
 				shoot.style.display = 'block';
 				left.style.display = 'block';
 				right.style.display = 'block';
-				resize();
+				resize_spaceinvaders();
 			}, false);
 
 			shoot.addEventListener("touchstart", function(){
 				shoot.style.backgroundImage = "url(Usuario/assets/shoot_press.png)";
-				press("shoot");
+				press("shoot_SI");
 			}, false);
 
 			shoot.addEventListener("touchend", function(){
@@ -104,26 +103,26 @@ function socket_spaceinvaders(){
 
 			left.addEventListener("touchstart", function(){
 				left.style.backgroundImage = "url(Usuario/assets/left_press.png)";
-				press("left_down");
+				press("left_down_SI");
 			}, false);
 			left.addEventListener("touchend", function(){
 				left.style.backgroundImage = "url(Usuario/assets/left.png)";
-				press("left_up");
+				press("left_up_SI");
 			}, false);
 
 			right.addEventListener("touchstart", function(){
 				right.style.backgroundImage = "url(Usuario/assets/right_press.png)";
-				press("right_down");
+				press("right_down_SI");
 			}, false);
 			right.addEventListener("touchend", function(){
 				right.style.backgroundImage = "url(Usuario/assets/right.png)";
-				press("right_up");
+				press("right_up_SI");
 			}, false);
 
-		}
+		/*}
 		else{
 			id_juego = 0;
 		}
 
-	});
+	});*/
 }
