@@ -1,3 +1,4 @@
+//SpaceInvaders
 
 var socket = io.connect('http://charleslp.info:4000', {'forceNew': true});
 var fromSocket = false;
@@ -14,36 +15,57 @@ socket.on("conectado", function(){
 
 
 socket.on('press', function(data){
-    
+
     switch(data.userdata.key){
-        case "play_SI": {  
-            music.stop();
-            game.state.start('play');
+        case "A_on": {
+            if(game.state.getCurrentState().key === "menu"){
+                music.stop();
+                game.state.start('play');
+            }
+            else if(!isPaused) {
+                cursors.space.isDown = true;
+                fromSocket = true;
+            }
+            else {
+                select_pause(); // en main.js
+            }
             break;
         }
-        case "shoot_SI": {   
-            cursors.space.isDown = true;
-            fromSocket = true;
-            break;
-        }
-        case "left_down_SI": {   
+        case "left_on": {   
             cursors.left.isDown = true;
             fromSocket = true;
             break;
         }
-        case "right_down_SI": {   
+        case "right_on": {   
             cursors.right.isDown = true;
             fromSocket = true;
             break;
         }
-        case "left_up_SI": {   
+        case "left_off": {   
             cursors.left.isDown = false;
             fromSocket = true;
             break;
         }
-        case "right_up_SI": {   
+        case "right_off": {   
             cursors.right.isDown = false;
             fromSocket = true;
+            break;
+        }
+        case "start_off": {
+            if(game.state.getCurrentState().key === "play")
+                pause(); // en main.js
+            break;
+        }
+        case "down_off": {
+            if(isPaused){
+                moveArrow("down"); // en main.js
+            }
+            break;
+        }
+        case "up_off": {
+            if(isPaused){
+                moveArrow("up"); // en main.js
+            }
             break;
         }
     }

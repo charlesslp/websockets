@@ -1,7 +1,11 @@
 body{
-	margin: 0;
+	margin: 0px;
 }
 
 #form_num{
 	display: block;
+}
+
+#game{
+	display: none;
 }

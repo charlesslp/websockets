@@ -84,6 +84,8 @@ var menuState = {
 		game.load.image('reglas', 'SpaceInvaders/assets/images/reglas.png');
         game.load.image('line', 'SpaceInvaders/assets/images/line.png');
         game.load.image('boton_disparo', 'SpaceInvaders/assets/images/boton_disparo2.png');
+        game.load.image('pause_fondo', 'SpaceInvaders/assets/images/transparente.png');
+        game.load.image('arrow', 'SpaceInvaders/assets/images/greenArrow.png');
 
 
         game.load.spritesheet('button', 'SpaceInvaders/assets/images/button.png', 50, 50);

@@ -29,6 +29,10 @@ app.get("/", function(req, res){
 	res.status(200).send("hello world");
 });
 
+app.get("/u", function(req, res){
+	res.redirect("http://charleslp.info:4001/usuario.html");
+});
+
 //----------------------------------------------------------------------------------------------------------
 
 
@@ -73,12 +77,6 @@ io.on('connection', function(socket){
 			socket.emit("checked", -1);
 	});
 
-	socket.on("start", function(list){
-		sockets_juego[list.id_juego].emit(list.start);
-	});
-
-
-
 	socket.on("press_key", function(array){
 		if(sockets_juego[array.id_juego]){
 			var array_data = {userdata: array, ids_users: ids_users[array.id_juego]};
@@ -99,6 +97,6 @@ io.on('connection', function(socket){
 
 
 //------------------------------------------------------------------------------------------------------------
-server.listen(4000, function() {
-	console.log("Servidor arrancado en el puerto 4000");
+server.listen(4001, function() {
+	console.log("Servidor arrancado en el puerto 4001");
 });

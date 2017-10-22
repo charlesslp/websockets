@@ -8,7 +8,7 @@ $(document).ready(function(){
 	socket = io.connect('http://charleslp.info:4000', {'forceNew': true});
 	//ini_spaceinvaders();
 	//ini_pong();
-	socket_menu();
+	//socket_menu();
 	menu_seleccion();
 });
 

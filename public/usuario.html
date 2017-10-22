@@ -4,22 +4,24 @@
 		<title>Mi aplicacion con socket</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="/Usuario/assets/main.css">
-		<link rel="stylesheet" href="/Usuario/assets/spaceinvaders.css">
+		<link rel="stylesheet" type="text/css" href="/Usuario/assets/main.css">
 		<script src="/socket.io/socket.io.js"></script>
-		<script src="/js/jquery-3.1.1.min.js"></script>
-		<script src="/Usuario/js/spaceinvaders.js"></script>
-		<script src="/Usuario/js/pong.js"></script>
-		<script src="/Usuario/js/main.js"></script>
+        <script src="./js/phaser.js"></script>
+		<script src="/Usuario/js/sockets.js"></script>
+		<script src="/Usuario/js/resize.js"></script>
+		<script src="/Usuario/js/play.js"></script>
+		<script src="/Usuario/js/usuario.js"></script>
 	</head>
 	<body>
 		
+	
 		<form id="form_num" onsubmit="return comprobar_num(this)">
 			<input type="text" id="numero" placeholder="Escribe aquí el número">
 			<br>
 			<input type="submit" value="enviar">
 		</form>
-
+	
+	<!--
 		<div id="btn_SI_MENU" class="two_btn_v"></div>
 		<div id="btn_PG_MENU" class="two_btn_v"></div>
 
@@ -32,6 +34,11 @@
 		<div id="btn_play_PG" class="one_btn_h"></div>
 		<div id="btn_up_PG" class="two_btn_v"></div>
 		<div id="btn_down_PG" class="two_btn_v"></div>
+	-->
+
+
+    	<div id="game"> 
+        </div>
 
 	</body>
 </html>
