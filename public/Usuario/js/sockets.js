@@ -1,5 +1,5 @@
 
-var socket = io.connect('http://charleslp.info:4000', {'forceNew': true});
+var socket = io.connect('http://charleslp.info:4001', {'forceNew': true});
 var id_juego;
 var userID;
 

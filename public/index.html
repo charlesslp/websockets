@@ -3,19 +3,27 @@
 <head>
 	<title>Inicio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/inicio.js"></script>
 </head>
 <body>
 
-	<h2>¡Bienvenido al museo del videojuego!</h2>
-	<br>
-	<h4>Conéctate desde tu móvil visitando esta página: <pagina style="color: blue;">charleslp.info/u</pagina> o escaneando el siguiente código QR</h4>
-	<br>
-	<img src="./assets/imagenes/QR.png" style="float: right; margin-right: 100px; width: 150px; height: 150px;">
-	<br>
-	<h4>Una vez allí introduce el siguiente código:</h4>
-	<h3 id="rand_num"></h3>
+	<div id="inicio">
+		<h2>¡Bienvenido al museo del videojuego!</h2>
+		<br>
+		<h4>Conéctate desde tu móvil visitando esta página: <pagina id="miEnlace">charleslp.info/u</pagina> o escaneando el siguiente código QR</h4>
+		<br>
+		<img src="./assets/imagenes/QR.png" id="QR">
+		<br>
+		<h4>Una vez allí introduce el siguiente código:</h4>
+		<h3 id="rand_num"></h3>
+	</div>
+
+	<div id="menu">
+		<img class="img_menu" id="spaceinvadersLogo" src="./assets/imagenes/spaceInvadersLogo.png">
+		<img class="img_menu" id="pongLogo" src="./assets/imagenes/pongLogo.png">
+	</div>
 
 </body>
 </html>

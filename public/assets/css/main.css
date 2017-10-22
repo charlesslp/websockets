@@ -1,0 +1,21 @@
+
+
+#miEnlace {
+	color: blue;
+}
+
+#QR{
+	float: right;
+	margin-right: 100px;
+	width: 150px;
+	height: 150px;
+}
+
+.img_menu{
+	width: 150px;
+	height: 150px;
+}
+
+#menu{
+	display: none;
+}

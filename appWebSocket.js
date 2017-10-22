@@ -70,7 +70,9 @@ io.on('connection', function(socket){
 			if(!ids_users[n])
 				ids_users[n] = [];
 			ids_users[n].push(userID);
+			console.log('no lo entiendo: ' + n);
 			socket.emit("checked", userID);
+			sockets_juego[n].emit('checked_id');
 			userID++;
 		}
 		else

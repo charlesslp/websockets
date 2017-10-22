@@ -1,6 +1,6 @@
 //Pong
 
-var socket = io.connect('http://charleslp.info:4000', {'forceNew': true});
+var socket = io.connect('http://charleslp.info:4001', {'forceNew': true});
 var fromSocket = false;
 var id_juego;
 
@@ -14,50 +14,99 @@ socket.on("conectado", function(){
 
 
 
+var who_pressed = -1;
+
 socket.on('press', function(data){
 
-	switch(data.userdata.key){
-		case "A_on": {
-            if(data.userdata.userID === data.ids_users[0])
-                cursors.x.isDown = true;
-            else if(data.userdata.userID === data.ids_users[1])
-                cursors.enter.isDown = true;
-            break;
+
+    if(!isPaused){
+    	switch(data.userdata.key){
+    		case "A_on": {
+                if(data.userdata.userID === data.ids_users[0])
+                    cursors.x.isDown = true;
+                else if(data.userdata.userID === data.ids_users[1])
+                    cursors.enter.isDown = true;
+                break;
+            }
+            case "A_off": {
+                if(data.userdata.userID === data.ids_users[0])
+                    cursors.x.isDown = false;
+                else if(data.userdata.userID === data.ids_users[1])
+                    cursors.enter.isDown = false;
+                break;
+            }
+            case "up_on": {
+                if(data.userdata.userID === data.ids_users[0])
+                    cursors.w.isDown = true;
+                else if(data.userdata.userID === data.ids_users[1])
+                    cursors.up.isDown = true;
+                break;
+            }
+            case "down_on": {
+                if(data.userdata.userID === data.ids_users[0])
+                    cursors.s.isDown = true;
+                else if(data.userdata.userID === data.ids_users[1])
+                    cursors.down.isDown = true;
+                break;
+            }
+            case "up_off": {
+                if(data.userdata.userID === data.ids_users[0])
+                    cursors.w.isDown = false;
+                else if(data.userdata.userID === data.ids_users[1])
+                    cursors.up.isDown = false;
+                break;
+            }
+            case "down_off": {
+                if(data.userdata.userID === data.ids_users[0])
+                    cursors.s.isDown = false;
+                else if(data.userdata.userID === data.ids_users[1])
+                    cursors.down.isDown = false;
+                break;
+            }
+            case "start_off": {
+                if(who_pressed === -1){
+                    who_pressed = data.userdata.userID;
+                    pause();
+                }
+                else {
+                    if(who_pressed === data.userdata.userID)
+                        pause();
+                }
+                break;
+            }
+    	}
+    }
+    else {
+        switch(data.userdata.key){
+            case "A_off": {
+                if(who_pressed === data.userdata.userID){
+                    select_pause();
+                }
+                break;
+            }
+            case "up_off": {
+                if(who_pressed === data.userdata.userID){
+                    moveArrow("up");
+                }
+                break;
+            }
+            case "down_off": {
+                if(who_pressed === data.userdata.userID){
+                    moveArrow("down");
+                }
+                break;
+            }
+            case "start_off": {
+                if(who_pressed === -1){
+                    who_pressed = data.userdata.userID;
+                    pause();
+                }
+                else {
+                    if(who_pressed === data.userdata.userID)
+                        pause();
+                }
+                break;
+            }
         }
-        case "A_off": {
-            if(data.userdata.userID === data.ids_users[0])
-                cursors.x.isDown = false;
-            else if(data.userdata.userID === data.ids_users[1])
-                cursors.enter.isDown = false;
-            break;
-        }
-        case "up_on": {
-            if(data.userdata.userID === data.ids_users[0])
-                cursors.w.isDown = true;
-            else if(data.userdata.userID === data.ids_users[1])
-                cursors.up.isDown = true;
-            break;
-        }
-        case "down_on": {
-            if(data.userdata.userID === data.ids_users[0])
-                cursors.s.isDown = true;
-            else if(data.userdata.userID === data.ids_users[1])
-                cursors.down.isDown = true;
-            break;
-        }
-        case "up_off": {
-            if(data.userdata.userID === data.ids_users[0])
-                cursors.w.isDown = false;
-            else if(data.userdata.userID === data.ids_users[1])
-                cursors.up.isDown = false;
-            break;
-        }
-        case "down_off": {
-            if(data.userdata.userID === data.ids_users[0])
-                cursors.s.isDown = false;
-            else if(data.userdata.userID === data.ids_users[1])
-                cursors.down.isDown = false;
-            break;
-        }
-	}
+    }
 });

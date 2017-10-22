@@ -85,7 +85,6 @@ var menuState = {
         game.load.image('line', 'SpaceInvaders/assets/images/line.png');
         game.load.image('boton_disparo', 'SpaceInvaders/assets/images/boton_disparo2.png');
         game.load.image('pause_fondo', 'SpaceInvaders/assets/images/transparente.png');
-        game.load.image('arrow', 'SpaceInvaders/assets/images/greenArrow.png');
 
 
         game.load.spritesheet('button', 'SpaceInvaders/assets/images/button.png', 50, 50);
@@ -99,6 +98,7 @@ var menuState = {
         game.load.spritesheet('explosion', 'SpaceInvaders/assets/images/explosion.png', 11, 11);
         game.load.spritesheet('bala', 'SpaceInvaders/assets/images/bullet.png', 2, 5);
         game.load.spritesheet('mando', 'SpaceInvaders/assets/images/mando.png', 50, 32);
+        game.load.spritesheet('arrow', 'SpaceInvaders/assets/images/greenArrow.png', 85, 85);
 
 
         game.load.audio('intro_song', 'SpaceInvaders/assets/sonidos/spaceinvaders.mp3');

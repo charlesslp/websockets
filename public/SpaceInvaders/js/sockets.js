@@ -1,11 +1,10 @@
 //SpaceInvaders
 
-var socket = io.connect('http://charleslp.info:4000', {'forceNew': true});
+var socket = io.connect('http://charleslp.info:4001', {'forceNew': true});
 var fromSocket = false;
 var id_juego;
 
 socket.on("conectado", function(){
-
 
     var url = new URL(document.URL)
     id_juego = url.searchParams.get("id");
