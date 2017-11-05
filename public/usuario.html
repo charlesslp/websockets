@@ -7,10 +7,10 @@
 		<link rel="stylesheet" type="text/css" href="/Usuario/assets/main.css">
 		<script src="/socket.io/socket.io.js"></script>
         <script src="./js/phaser.js"></script>
-		<script src="/Usuario/js/sockets.js"></script>
 		<script src="/Usuario/js/resize.js"></script>
 		<script src="/Usuario/js/play.js"></script>
 		<script src="/Usuario/js/usuario.js"></script>
+		<script src="/Usuario/js/sockets.js"></script>
 	</head>
 	<body>
 		
@@ -20,21 +20,11 @@
 			<br>
 			<input type="submit" value="enviar">
 		</form>
-	
-	<!--
-		<div id="btn_SI_MENU" class="two_btn_v"></div>
-		<div id="btn_PG_MENU" class="two_btn_v"></div>
 
-		<div id="btn_play_SI" class="one_btn_h"></div>
-		<div id="btn_left_SI" class="three_btn_v"></div>
-		<div id="btn_right_SI" class="three_btn_v"></div>
-		<div id="btn_shoot_SI" class="three_btn_v"></div>
-
-
-		<div id="btn_play_PG" class="one_btn_h"></div>
-		<div id="btn_up_PG" class="two_btn_v"></div>
-		<div id="btn_down_PG" class="two_btn_v"></div>
-	-->
+		<div id="bienvenido_usuario" style="display: none">
+			<center><h3>Bienvenido!!! para jugar correctamente gira la pantalla y pulsa "aceptar"</h3></center>
+			<center><button onclick="empezar()">Aceptar</button></center>
+		</div>
 
 
     	<div id="game"> 

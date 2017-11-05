@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
 	<script src="/socket.io/socket.io.js"></script>
-	<script src="/js/inicio.js"></script>
+	<script type="text/javascript" src="./js/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 		<br>
 		<h4>Conéctate desde tu móvil visitando esta página: <pagina id="miEnlace">charleslp.info/u</pagina> o escaneando el siguiente código QR</h4>
 		<br>
-		<img src="./assets/imagenes/QR.png" id="QR">
+		<div id="QR" style="width:100px; height:100px; margin-top:15px;"></div>
 		<br>
 		<h4>Una vez allí introduce el siguiente código:</h4>
 		<h3 id="rand_num"></h3>
@@ -24,6 +24,11 @@
 		<img class="img_menu" id="spaceinvadersLogo" src="./assets/imagenes/spaceInvadersLogo.png">
 		<img class="img_menu" id="pongLogo" src="./assets/imagenes/pongLogo.png">
 	</div>
+		
+
+
+	<script src="/js/inicio.js"></script>
+	<!-- El script debe ir después para que qr.js funcione -->
 
 </body>
 </html>

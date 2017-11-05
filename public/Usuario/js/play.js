@@ -33,9 +33,10 @@ var playState = {
         gamepad.height = gamepad.height*Y;
 
 
-        pad = game.add.sprite(7*X, 110*Y, 'pad');
+        pad = game.add.sprite(7*X, 0, 'pad');
         pad.width = 220*X;
         pad.height = 220*X;
+        pad.y = game.world.height-230*Y;
 
         pad.inputEnabled = true;
         pad.events.onInputDown.add(onDown, this);
@@ -58,13 +59,18 @@ var playState = {
         botonB.events.onInputDown.add(onDownB, this);
         botonB.events.onInputUp.add(onUpB, this);
 
-        start = game.add.sprite(238*X, 173*Y, 'start');
-        start.width = 100*X;
-        start.height = 50*Y;
+        startImg = game.add.sprite(238*X, 173*Y, 'start');
+        startImg.width = 100*X;
+        startImg.height = 50*Y;
 
-        start.inputEnabled = true;
-        start.events.onInputDown.add(onDownStart, this);
-        start.events.onInputUp.add(onUpStart, this);
+        startImg.inputEnabled = true;
+        startImg.events.onInputDown.add(onDownStart, this);
+        startImg.events.onInputUp.add(onUpStart, this);
+
+        textPlayer = game.add.text(game.world.centerX, 70*Y, 'Player '+player_num, { fontSize: '20px', fill: '#ffffff' });
+        textPlayer.width = 100*X;
+        textPlayer.height = 50*Y;
+        textPlayer.anchor.setTo(0.5, 1);
 
     }
 };

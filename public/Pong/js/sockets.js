@@ -110,3 +110,8 @@ socket.on('press', function(data){
         }
     }
 });
+
+socket.on('refresh_page', function(id){
+    window.location.replace("http://charleslp.info:4001");
+});
+

@@ -6,6 +6,7 @@ var url = "";
 socket.on('ID', function(id){
 	id_juego = id;
 	document.getElementById("rand_num").innerHTML = id_juego;
+	makeCode();
 });
 
 socket.on("conectado", function(){
@@ -76,6 +77,7 @@ socket.on('checked_id', function(){
 function mostrar_menu(){
 
 	document.getElementById("inicio").style.display = "none";
+	document.getElementById("QR").style.display = "none";
 	document.getElementById("menu").style.display = "block";
 
 	juego_seleccionado = 0;
@@ -87,4 +89,20 @@ function mostrar_menu(){
 	document.getElementById(juegos[juego_seleccionado]+'Logo').style.height = "170px";
 	document.getElementById(juegos[juego_seleccionado]+'Logo').style.border = "thick solid #28ff48";
 }
+
+
+
+var qrcode = new QRCode(document.getElementById("QR"), {
+	width : 100,
+	height : 100
+});
+
+function makeCode () {
+	qrcode.makeCode("http://charleslp.info:4001/usuario.html?id="+id_juego);
+}
+
+
+socket.on('refresh_page', function(id){
+	window.location.replace("http://charleslp.info:4001");
+});
 

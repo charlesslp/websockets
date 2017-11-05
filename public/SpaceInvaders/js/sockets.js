@@ -10,62 +10,72 @@ socket.on("conectado", function(){
     id_juego = url.searchParams.get("id");
     socket.emit("recibida_conn", url.searchParams.get("id"));
 
+    console.log(game.world.width);
+    game.device.desktop = true;
+
 });
 
 
 socket.on('press', function(data){
 
-    switch(data.userdata.key){
-        case "A_on": {
-            if(game.state.getCurrentState().key === "menu"){
-                music.stop();
-                game.state.start('play');
+    if(data.userdata.userID === data.ids_users[0]){
+        switch(data.userdata.key){
+            case "A_on": {
+                if(game.state.getCurrentState().key === "menu"){
+                    music.stop();
+                    game.state.start('play');
+                }
+                else if(!isPaused) {
+                    cursors.space.isDown = true;
+                    fromSocket = true;
+                }
+                else {
+                    select_pause(); // en main.js
+                }
+                break;
             }
-            else if(!isPaused) {
-                cursors.space.isDown = true;
+            case "left_on": {   
+                cursors.left.isDown = true;
                 fromSocket = true;
+                break;
             }
-            else {
-                select_pause(); // en main.js
+            case "right_on": {   
+                cursors.right.isDown = true;
+                fromSocket = true;
+                break;
             }
-            break;
-        }
-        case "left_on": {   
-            cursors.left.isDown = true;
-            fromSocket = true;
-            break;
-        }
-        case "right_on": {   
-            cursors.right.isDown = true;
-            fromSocket = true;
-            break;
-        }
-        case "left_off": {   
-            cursors.left.isDown = false;
-            fromSocket = true;
-            break;
-        }
-        case "right_off": {   
-            cursors.right.isDown = false;
-            fromSocket = true;
-            break;
-        }
-        case "start_off": {
-            if(game.state.getCurrentState().key === "play")
-                pause(); // en main.js
-            break;
-        }
-        case "down_off": {
-            if(isPaused){
-                moveArrow("down"); // en main.js
+            case "left_off": {   
+                cursors.left.isDown = false;
+                fromSocket = true;
+                break;
             }
-            break;
-        }
-        case "up_off": {
-            if(isPaused){
-                moveArrow("up"); // en main.js
+            case "right_off": {   
+                cursors.right.isDown = false;
+                fromSocket = true;
+                break;
             }
-            break;
+            case "start_off": {
+                if(game.state.getCurrentState().key === "play")
+                    pause(); // en main.js
+                break;
+            }
+            case "down_off": {
+                if(isPaused){
+                    moveArrow("down"); // en main.js
+                }
+                break;
+            }
+            case "up_off": {
+                if(isPaused){
+                    moveArrow("up"); // en main.js
+                }
+                break;
+            }
         }
     }
 });
+
+socket.on('refresh_page', function(id){
+    window.location.replace("http://charleslp.info:4001");
+});
+
