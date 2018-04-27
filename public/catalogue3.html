@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Catalogo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="./assets/css/catalogue.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="./js/qrcode.min.js"></script>
+	<script src="/js/catalogue.js"></script>
+	<script src="/js/constants.js"></script>
+</head>
+<body>
+
+	<div id="inicio">
+		<h2>¡Bienvenido al museo del videojuego!</h2>
+		<br>
+		<h4>Conéctate desde tu móvil visitando esta página: <pagina id="miEnlace">carlosmp.com/u</pagina> o escaneando el siguiente código QR</h4>
+		<br>
+		<div id="QR" class="QR_class"></div>
+		<br>
+		<h4>Una vez allí introduce el siguiente código:</h4>
+		<h3 id="rand_num"></h3>
+	</div>
+
+	<div id="menu">
+		<div class="myHeader">
+			<table>
+				<tbody>
+					<tr id="players_connected">
+						<td>
+							<h4>Usuarios conectados:</h4>
+						</td>
+						<td id="p_1">
+							<h5>Player 1<h5>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div id="QR2" class="QR_class col-md-2"></div>
+		</div>
+
+		<div class="description row">
+			<p id="descriptionParagraph" class="col-ms-6">Bienvenido al museo del videojuego. Para empezar, selecciona el juego que quieras jugar y disfruta.</p>
+			<img id="descriptionImage" class="img_menu col-ms-6">
+			<button id="buttonPlayGame" class="col-ms-12">Jugar</button>
+		</div>
+
+		<div class="selection">
+			<img class="img_menu" onclick="clickGame('spaceinvaders')" id="spaceinvadersLogo" src="./assets/imagenes/spaceInvadersLogo.png">
+			<img class="img_menu" onclick="clickGame('pong')" id="pongLogo" src="./assets/imagenes/pongLogo.png">
+			<img class="img_menu" onclick="clickGame('tetris')" id="tetrisLogo" src="./assets/imagenes/tetrisLogo.png">
+		</div>
+	</div>
+		
+
+
+	<script src="/js/inicio.js"></script>
+	<!-- El script debe ir después para que qr.js funcione -->
+
+</body>
+</html>

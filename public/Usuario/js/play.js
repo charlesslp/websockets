@@ -67,11 +67,12 @@ var playState = {
         startImg.events.onInputDown.add(onDownStart, this);
         startImg.events.onInputUp.add(onUpStart, this);
 
+        if(player_num === undefined)
+            player_num = -1;
         textPlayer = game.add.text(game.world.centerX, 70*Y, 'Player '+player_num, { fontSize: '20px', fill: '#ffffff' });
         textPlayer.width = 100*X;
         textPlayer.height = 50*Y;
         textPlayer.anchor.setTo(0.5, 1);
-
     }
 };
 

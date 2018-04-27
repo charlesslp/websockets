@@ -5,7 +5,7 @@ var userID;
 var list;
 
 $(document).ready(function(){
-	socket = io.connect('http://charleslp.info:4001', {'forceNew': true});
+	socket = io.connect('http://carlosmp.com:4001', {'forceNew': true});
 	//ini_spaceinvaders();
 	//ini_pong();
 	//socket_menu();

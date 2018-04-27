@@ -120,7 +120,7 @@ function select_pause(){
     switch(selectPause){
         case "continue": un_pause(); break;
         case "salir": {
-            window.location.href = '/?id=' + id_juego;
+            window.location.href = '/catalogue.html?id=' + id_juego;
             break;
         }
     }

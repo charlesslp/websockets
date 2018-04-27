@@ -14,18 +14,25 @@
 	</head>
 	<body>
 		
-	
-		<form id="form_num" onsubmit="return comprobar_num(this)">
-			<input type="text" id="numero" placeholder="Escribe aquí el número">
-			<br>
-			<input type="submit" value="enviar">
-		</form>
+		<div id="form_num" style="display: block">
+			<center>
+				<form onsubmit="return comprobar_num(this)">
+					<input type="text" id="numero" placeholder="Escribe aquí el número">
+					<br>
+					<input class="button" type="submit" value="enviar">
+				</form>
+			</center>
+		</div>
 
 		<div id="bienvenido_usuario" style="display: none">
 			<center><h3>Bienvenido!!! para jugar correctamente gira la pantalla y pulsa "aceptar"</h3></center>
-			<center><button onclick="empezar()">Aceptar</button></center>
+			<center><button class="button" onclick="empezar()">Aceptar</button></center>
 		</div>
 
+
+		<div id="scanner" style="display: none">
+			<center><button class="button" onclick="scan()">Escanear QR</button></center>
+		</div>
 
     	<div id="game"> 
         </div>

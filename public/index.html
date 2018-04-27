@@ -1,34 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inicio</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
-	<script src="/socket.io/socket.io.js"></script>
-	<script type="text/javascript" src="./js/qrcode.min.js"></script>
+    <title>Catálogo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/catalogue.css">
+
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/catalogue.js"></script>
 </head>
 <body>
 
-	<div id="inicio">
-		<h2>¡Bienvenido al museo del videojuego!</h2>
-		<br>
-		<h4>Conéctate desde tu móvil visitando esta página: <pagina id="miEnlace">charleslp.info/u</pagina> o escaneando el siguiente código QR</h4>
-		<br>
-		<div id="QR" style="width:100px; height:100px; margin-top:15px;"></div>
-		<br>
-		<h4>Una vez allí introduce el siguiente código:</h4>
-		<h3 id="rand_num"></h3>
-	</div>
+<!-- Team -->
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1">EL MUSEO DEL VIDEOJUEGO</h5>
+            
+        <div class="row" id="main">
 
-	<div id="menu">
-		<img class="img_menu" id="spaceinvadersLogo" src="./assets/imagenes/spaceInvadersLogo.png">
-		<img class="img_menu" id="pongLogo" src="./assets/imagenes/pongLogo.png">
-	</div>
-		
+<!--
+            <div class="col-6 col-sm-6 col-md-6 col-lg-4 no-padding">
+                <div class="image-flip unflip" onclick="handleFlip(this);">
+                    <div class="mainflip no-padding">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center no-padding">
+                                    <p><img class="" src="./assets/imagenes/spaceInvadersLogo.png" alt="card image"></p>
+                                    <p class="card-title h4">SpaceInvaders</p>
+                                    <p class="card-text">El juego de recreativas más famoso del mundo.</p>
+                                    <div class="button-play blue" onclick="window.location.href='https://carlosmp.com:4001/spaceinvaders.html'">Jugar</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center no-padding">
+                                    <img class="" src="./assets/imagenes/spaceInvadersInfo.png" alt="card image">
+                                    <p class="card-text">Space Invaders es un videojuego de arcade lanzado en 1978. El objetivo es eliminar oleadas de alienígenas y obtener la mayor cantidad de puntos posible.</p>
+                                    <div class="button-play blue" onclick="window.location.href='https://carlosmp.com:4001/spaceinvaders.html'">Jugar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-	<script src="/js/inicio.js"></script>
-	<!-- El script debe ir después para que qr.js funcione -->
 
+            <div class="col-6 col-sm-6 col-md-6 col-lg-4 no-padding">
+                <div class="image-flip unflip" onclick="handleFlip(this);">
+                    <div class="mainflip no-padding">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center no-padding">
+                                    <p><img class="" src="./assets/imagenes/pongLogo.png" alt="card image"></p>
+                                    <p class="card-title h4">Pong</p>
+                                    <p class="card-text">Una vez que empiezas solo quieres seguir jugando.</p>
+                                    <div class="button-play blue" onclick="window.location.href='https://carlosmp.com:4001/pong.html'">Jugar</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center no-padding">
+                                    <img class="" src="./assets/imagenes/pongInfo.png" alt="card image">
+                                    <p class="card-text">Pong es un juego de deportes en dos dimensiones lanzado en 1972 que simula un tenis de mesa (o ping pong). Se puede jugar solo o acompañado.</p>
+                                    <div class="button-play blue" onclick="window.location.href=`https://carlosmp.com:4001/pong.html`">Jugar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-4 no-padding">
+                <div class="image-flip unflip" onclick="handleFlip(this);">
+                    <div class="mainflip no-padding">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center no-padding">
+                                    <p><img class="" src="./assets/imagenes/tetrisLogo.png" alt="card image"></p>
+                                    <p class="card-title h4">Tetris</p>
+                                    <p class="card-text">Para los amantes de los rompecabezas y de la nostalgia.</p>
+                                    <div class="button-play blue" onclick="window.location.href='https://carlosmp.com:4001/tetris.html'">Jugar</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center no-padding">
+                                    <img class="" src="./assets/imagenes/tetrisInfo.png" alt="card image">
+                                    <p class="card-text">Tetris es un videojuego de puzzle lanzado en 1984. Tiene el récord de ser el juego completamente funcional más grande del mundo</p>
+                                    <div class="button-play blue" onclick="window.location.href='https://carlosmp.com:4001/tetris.html'">Jugar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->
+        </div>
+    </div>
+</section>
+<!-- Team -->
 </body>
 </html>

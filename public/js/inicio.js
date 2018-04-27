@@ -1,7 +1,22 @@
-var socket = io.connect('http://charleslp.info:4001', {'forceNew': true});
+var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
 
 var id_juego;
 var url = "";
+
+window.onload = function(){
+	url = new URL(document.URL)
+    if(url.searchParams.get("mode") === "hybrid"){
+		document.getElementById("inicio").style.display = "block";
+		document.getElementById("QR").style.display = "block";
+		document.getElementById("menu").style.display = "none";
+	}
+	else{
+		document.getElementById("inicio").style.display = "none";
+		document.getElementById("QR").style.display = "none";
+		document.getElementById("QR2").style.display = "none";
+		document.getElementById("menu").style.display = "block";
+	}
+}
 
 socket.on('ID', function(id){
 	id_juego = id;
@@ -15,6 +30,7 @@ socket.on("conectado", function(){
     if(url.searchParams.get("id")){
 	    id_juego = url.searchParams.get("id");
 	    socket.emit("recibida_conn", url.searchParams.get("id"));
+	    makeCode();
 	    mostrar_menu();
 	}
 
@@ -24,7 +40,7 @@ socket.on('press', function(data){
 
 	/*
 	data {
-		ids_users: [],
+		ids_users: [1,2,65],
 		userdata: {
 			id_juego: "0000",
 			key: "up_on",
@@ -70,39 +86,65 @@ socket.on('press', function(data){
 var juegos = [];
 var juego_seleccionado;
 
-socket.on('checked_id', function(){
-	mostrar_menu();
+socket.on('checked_id', function(pos){
+	mostrar_menu(pos);
 });
 
-function mostrar_menu(){
+function mostrar_menu(pos){
 
-	document.getElementById("inicio").style.display = "none";
-	document.getElementById("QR").style.display = "none";
-	document.getElementById("menu").style.display = "block";
+	if(juego_seleccionado === undefined){
+		document.getElementById("inicio").style.display = "none";
+		document.getElementById("QR").style.display = "none";
+		document.getElementById("menu").style.display = "block";
 
-	juego_seleccionado = 0;
+		juego_seleccionado = 0;
 
-	juegos[0] = "spaceinvaders";
-	juegos[1] = "pong";
+		juegos[0] = "spaceinvaders";
+		juegos[1] = "pong";
+		juegos[2] = "tetris";
 
-	document.getElementById(juegos[juego_seleccionado]+'Logo').style.width = "170px";
-	document.getElementById(juegos[juego_seleccionado]+'Logo').style.height = "170px";
-	document.getElementById(juegos[juego_seleccionado]+'Logo').style.border = "thick solid #28ff48";
+		document.getElementById(juegos[juego_seleccionado]+'Logo').style.width = "170px";
+		document.getElementById(juegos[juego_seleccionado]+'Logo').style.height = "170px";
+		document.getElementById(juegos[juego_seleccionado]+'Logo').style.border = "thick solid #28ff48";
+
+	}
+	else {
+
+	    var newItem = document.createElement("TD");
+	    pos++;
+	    newItem.id = 'p_'+pos;
+	    var textnode = document.createTextNode("Player " + pos);
+	    newItem.appendChild(textnode);
+
+	    var list = document.getElementById("players_connected");
+	    list.appendChild(newItem);
+	}
 }
 
-
+socket.on('delete_last', function(pos){
+	console.log(pos);
+	pos++;
+	var parent = document.getElementById("players_connected");
+	var child = document.getElementById("p_"+pos);
+	parent.removeChild(child);
+});
 
 var qrcode = new QRCode(document.getElementById("QR"), {
 	width : 100,
 	height : 100
 });
 
+var qrcode2 = new QRCode(document.getElementById("QR2"), {
+	width : 100,
+	height : 100
+});
+
 function makeCode () {
-	qrcode.makeCode("http://charleslp.info:4001/usuario.html?id="+id_juego);
+	qrcode.makeCode("https://carlosmp.com:4001/usuario.html?id="+id_juego);
+	qrcode2.makeCode("https://carlosmp.com:4001/usuario.html?id="+id_juego);
 }
 
-
-socket.on('refresh_page', function(id){
-	window.location.replace("http://charleslp.info:4001");
+socket.on('refresh_page', function(){
+	window.location.replace("https://carlosmp.com:4001/catalogue.html");
 });
 

@@ -1,5 +1,5 @@
 
-var socket = io.connect('http://charleslp.info:4001', {'forceNew': true});
+var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
 var id_juego;
 var userID;
 var player_num;
@@ -26,19 +26,38 @@ function comprobar_num(e){
 	return false;
 }
 
+function selectForm(){
+	console.log("seleccionado Form");
+
+	document.getElementById("selecciona").style.display = 'none';
+	document.getElementById("form_num").style.display = 'block';
+}
+
+function selectQR(){
+	console.log("seleccionado QRc");
+	window.location.href = "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end";
+}
+
 function empezar(){
-	var doc = window.document;
-	var docEl = doc.documentElement;
 
-	var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-	var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 
-	if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-		requestFullScreen.call(docEl);
+	if(!isSafari){
+		var doc = window.document;
+		var docEl = doc.documentElement;
+
+		var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+		var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+		if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+			requestFullScreen.call(docEl);
+		}
+		else {
+			cancelFullScreen.call(doc);
+		}
 	}
-	else {
-		cancelFullScreen.call(doc);
-	}
+	
+	textPlayer.text = "Player " + player_num;
 
 	document.getElementById("bienvenido_usuario").style.display = 'none';
 	document.getElementById("game").style.display = 'block';
@@ -46,7 +65,7 @@ function empezar(){
 
 function press(key){
 	var array = {key: key, id_juego: id_juego, userID: userID};
-	console.log(key);
+	console.log(id_juego);
 	socket.emit('press_key', array);
 }
 
@@ -55,7 +74,7 @@ socket.on("checked", function (id, num){
 	if(id >= 0){
 		userID = id;
 		player_num = num;
-		console.log(player_num);
+
 		document.getElementById("form_num").style.display = 'none';
 		document.getElementById("bienvenido_usuario").style.display = 'block';
 	}
@@ -69,7 +88,6 @@ socket.on("change_order", function (data){
 
 	for (var i = 0; i < data.length; i++) {
 		if(data[i] === userID){
-			console.log("dentro del for");
 			player_num = i+1;
 			textPlayer.text = "Player " + player_num;
 			i = data.length;
@@ -78,3 +96,8 @@ socket.on("change_order", function (data){
 
 });
 
+socket.on("refresh_user", function (){
+
+	window.location.replace("https://carlosmp.com:4001/usuario.html");
+
+});

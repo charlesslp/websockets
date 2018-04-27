@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catálogo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/catalogueHybrid.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./js/qrcode.min.js"></script>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1">EL MUSEO DEL VIDEOJUEGO</h5>
+        
+    <div id="inicio">
+        <h2>¡Bienvenido al museo del videojuego!</h2>
+        <br>
+        <h4>Conéctate desde tu móvil visitando esta página: <pagina id="miEnlace">carlosmp.com/u</pagina> o escaneando el siguiente código QR</h4>
+        <br>
+        <div id="QR" class="QR_class"></div>
+        <br>
+        <h4>Una vez allí introduce el siguiente código:</h4>
+        <h3 id="rand_num"></h3>
+    </div>
+
+        <div id="menu" class="row">
+            <div id="mainHeader" class="col-12 row">
+                <div id="player_list" class="col-6 row">
+                    <h5>Usuarios conectados:</h5>
+                    <h5 id="p_1" class="player">Player 1</h5>
+                </div>
+
+                <div class="col-4">
+                    <h3 id="rand_num2"></h3>
+                    <div id="QR2" class="QR_class"></div>
+                </div>
+            </div>
+
+            <div class="row" id="main">
+                <!--
+                <div class="col-6 col-sm-6 col-md-6 col-lg-4 no-padding">
+                    <div class="image-flip unflip" onclick="handleFlip(this);">
+                        <div class="mainflip no-padding">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center no-padding">
+                                        <p><img class="" src="./assets/imagenes/spaceInvadersLogo.png" alt="card image"></p>
+                                        <p class="card-title h4">SpaceInvaders</p>
+                                        <p class="card-text">El juego de recreativas más famoso del mundo.</p>
+                                        <div class="button-play blue" onclick="window.location.href='https://carlosmp.com:4001/spaceinvaders.html'">Jugar</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center no-padding">
+                                        <img class="" src="./assets/imagenes/spaceInvadersInfo.png" alt="card image">
+                                        <p class="card-text">Space Invaders es un videojuego de arcade lanzado en 1978. El objetivo es eliminar oleadas de alienígenas y obtener la mayor cantidad de puntos posible.</p>
+                                        <div class="button-play blue" onclick="window.location.href='https://carlosmp.com:4001/spaceinvaders.html'">Jugar</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="./js/catalogueHybrid.js"></script>
+
+</body>
+</html>

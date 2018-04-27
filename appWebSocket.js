@@ -9,15 +9,15 @@ var app = express();
 
 
 
-var caBundle = fs.readFileSync("../../charleslp_info.ca-bundle");
-var clavePrivada = fs.readFileSync("../../clave_charleslp_info.key");
-var certificado = fs.readFileSync("../../charleslp_info.crt");
+var caBundle = fs.readFileSync("../../carlosmp_com.ca-bundle");
+var clavePrivada = fs.readFileSync("../../clave_carlosmp_com.key");
+var certificado = fs.readFileSync("../../carlosmp_com.crt");
 
 
 
 
-//var server = require("https").Server({ ca: caBundle, key: clavePrivada, cert: certificado },app);
-var server = require("http").Server(app);
+var server = require("https").createServer({ ca: caBundle, key: clavePrivada, cert: certificado },app);
+//var server = require("http").Server(app);
 
 var io = require('socket.io')(server);
 
@@ -30,7 +30,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/u", function(req, res){
-	res.redirect("http://charleslp.info:4001/usuario.html");
+	res.redirect("https://carlosmp.com:4001/usuario.html");
 });
 
 //----------------------------------------------------------------------------------------------------------
@@ -69,6 +69,7 @@ io.on('connection', function(socket){
 		sockets_juego[id_nuevo] = socket;
 		delete sockets_juego[rand];
 		rand = id_nuevo;
+		console.log("connected", rand);
 	});
 
 	socket.on("comprueba", function(n){
@@ -80,8 +81,11 @@ io.on('connection', function(socket){
 			userID = nextUserID;
 			id_juego = n;
 
-			timesOutJuegos[id_juego] = setTimeout(function(){ refresh_page(id_juego) }, 30000);
+			console.log("ini", id_juego, timesOutJuegos[id_juego] !== undefined);
+			if(timesOutJuegos[id_juego] !== undefined)
+				clearTimeout(timesOutJuegos[id_juego]);
 
+			timesOutJuegos[id_juego] = setTimeout(function(){ refresh_page(id_juego) }, 120000);
 			sockets_users[userID] = socket;
 
 			if(!ids_users[id_juego])
@@ -89,7 +93,7 @@ io.on('connection', function(socket){
 			ids_users[id_juego].push(userID);
 
 			socket.emit("checked", userID, ids_users[id_juego].length);
-			sockets_juego[id_juego].emit('checked_id');
+			sockets_juego[id_juego].emit('checked_id', ids_users[id_juego].indexOf(userID));
 
 			do{
 				nextUserID = Math.floor((Math.random() * 9999));
@@ -125,12 +129,19 @@ io.on('connection', function(socket){
 			console.log('deleted user: ' + userID);
 			ids_users[id_juego].splice(x,1);
 			delete sockets_users[userID];
-			if(ids_users[id_juego].length === 0)
-				sockets_juego[id_juego].emit('refresh_page');
+			if(ids_users[id_juego].length === 0){
+				if(sockets_juego[id_juego] !== undefined){
+					sockets_juego[id_juego].emit('refresh_page');
+				}
+			}
 			else{
 				for (var i = 0; i < ids_users[id_juego].length; i++) {
-					if(sockets_users[ids_users[id_juego][i]] !== undefined)
+					if(sockets_users[ids_users[id_juego][i]] !== undefined){
 						sockets_users[ids_users[id_juego][i]].emit("change_order", ids_users[id_juego]);
+					}
+				}
+				if(sockets_juego[id_juego] !== undefined){
+					sockets_juego[id_juego].emit("delete_last", ids_users[id_juego].length);
 				}
 			}
 		}
@@ -141,13 +152,23 @@ io.on('connection', function(socket){
 	});
 
 	var resetTimeOut = function(juego){
+		console.log("reset", juego, timesOutJuegos.length);
 		clearTimeout(timesOutJuegos[juego]);
-		timesOutJuegos[juego] = setTimeout(function(){ refresh_page(juego) }, 30000);
+		timesOutJuegos[juego] = setTimeout(function(){ refresh_page(juego) }, 120000);
 	}
 
 	var refresh_page = function(juego){
-		if(sockets_users[juego] !== undefined)
+		console.log("refresssh", juego);
+		if(sockets_juego[juego] !== undefined)
 			sockets_juego[juego].emit('refresh_page');
+
+		if(ids_users[id_juego] !== undefined){
+			for (var i = 0; i < ids_users[id_juego].length; i++) {
+				if(sockets_users[ids_users[id_juego][i]] !== undefined){
+					sockets_users[ids_users[id_juego][i]].emit("refresh_user");
+				}
+			}
+		}
 	}
 });
 

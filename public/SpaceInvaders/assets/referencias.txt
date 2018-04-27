@@ -1,5 +1,5 @@
 imagenes:
-- https://es.pinterest.com/pin/292522938278663359/
+- https://www.pinterest.es/pin/557813103821634098/
 - http://www.freeiconspng.com/img/35754
 
 font:

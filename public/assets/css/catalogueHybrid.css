@@ -1,0 +1,540 @@
+/* FontAwesome for working BootSnippet :> */
+
+
+#miEnlace {
+    color: blue;
+}
+
+.QR_class{
+    float: right;
+    width: 150px;
+    height: 150px;
+}
+
+#QR {
+    margin-right: 100px;
+}
+
+#inicio{
+    display: block;
+}
+
+#menu{
+    display: none;
+}
+
+.player{
+    margin-left: 10px;
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+#team {
+    background: #eee !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #108d6f;
+    border-color: #108d6f;
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007b5e;
+    border-color: #007b5e;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#team .card {
+    border: none;
+    background: #ffffff;
+}
+
+.image-flip.hover .backside {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    border-radius: .25rem;
+}
+
+.image-flip.hover .frontside {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.mainflip {
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.frontside {
+    position: relative;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.backside {
+    position: absolute;
+    top: 0;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    margin-left:-155px;
+    background: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+
+.frontside,
+.backside {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 1s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 1s;
+    -o-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.frontside, .frontside .card,
+.backside, .backside .card {
+    width: 310px;
+    height: 350px;
+}
+
+.frontside, .frontside .card{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.frontside .card .card-title,
+.backside .card .card-title {
+    color: #007b5e !important;
+}
+
+.frontside .card .card-body img {
+    width: 110px;
+    height: 110px;
+}
+
+.frontside .card .card-body p {
+    margin: 1.25rem;
+}
+
+.backside .card .card-body p {
+    margin-top: 1rem;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    text-align: left;
+}
+
+.backside .card .card-text {
+    margin-top: 0.5em;
+}
+
+.card{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.no-padding{
+    padding: 0rem;
+}
+
+.backside .card .card-body img {
+    width: 310px;
+    height: 130px;
+    border-radius: .25rem .25rem 0 0;
+}
+/*
+.mygraddient{
+    background-image: linear-gradient(0deg, white, blue 80%) no-repeat;
+}
+*/
+.button-play{
+    position: absolute;
+    top: 80%;
+    left: 34%;
+
+    width: 100px;
+    height: 50px;
+
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 22px;
+    text-decoration: none;
+    color: #fff;
+
+    background-color: #55acee;
+    box-shadow: 0px 5px 0px 0px #3C93D5;
+
+}
+
+.button-play:hover {
+    cursor: pointer;
+}
+.button-play:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+
+@media only screen and (max-width: 770px) {
+    
+
+    .backside {
+        top: 0;
+        left: 50%;
+
+        margin-left:-105px;
+        background: white;
+    }
+
+    .frontside, .frontside .card,
+    .backside, .backside .card {
+        width: 210px;
+        height: 260px;
+    }
+
+    .frontside .card .card-body img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .backside .card .card-body img {
+        width: 210px;
+        height: 100px;
+    }
+
+    .frontside .card .card-body p {
+        margin: 0.75rem;
+    }
+
+    .backside .card .card-body p {
+        margin-top: 0.5rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: 12px;
+    }
+
+    .backside .card .card-text {
+        margin-top: 0.5em;
+    }
+
+    .button-play{
+        top: 80%;
+        left: 31%;
+
+        width: 80px;
+        height: 35px;
+
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 18px;
+
+        box-shadow: 0px 5px 0px 0px #3C93D5;
+
+    }
+
+    .button-play:hover {
+        cursor: pointer;
+    }
+    .button-play:active {
+        transform: translate(0px, 5px);
+        -webkit-transform: translate(0px, 5px);
+        box-shadow: 0px 1px 0px 0px;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 425px) {
+    
+
+    .backside {
+        top: 0;
+        left: 50%;
+
+        margin-left:-75px;
+        background: white;
+    }
+
+    .frontside, .frontside .card,
+    .backside, .backside .card {
+        width: 150px;
+        height: 200px;
+    }
+
+    .frontside .card .card-body img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .backside .card .card-body img {
+        width: 150px;
+        height: 70px;
+    }
+
+    .frontside .card .card-body p {
+        margin: 0.5rem;
+        font-size: 11px;
+    }
+
+    .frontside .card .card-body .card-title {
+        font-size: 18px;
+    }
+
+
+    .backside .card .card-body p {
+        margin-top: 0.3rem;
+        font-size: 11px;
+    }
+
+    .backside .card .card-text {
+        margin-top: 0.1em;
+    }
+
+    .button-play{
+        top: 78%;
+        left: 30%;
+
+        width: 60px;
+        height: 25px;
+
+        padding: 2px;
+        border-radius: 5px;
+        font-size: 15px;
+
+        box-shadow: 0px 5px 0px 0px #3C93D5;
+
+    }
+
+    .backside .button-play{
+        display: none;
+    }
+
+    .button-play:hover {
+        cursor: pointer;
+    }
+    .button-play:active {
+        transform: translate(0px, 5px);
+        -webkit-transform: translate(0px, 5px);
+        box-shadow: 0px 1px 0px 0px;
+    }
+
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*Hybrid*/
+
+    .selected .backside {
+        top: 0;
+        left: 50%;
+
+        margin-left:-170px;
+        background: white;
+        border-radius: .25rem;
+    }
+
+    .selected .frontside, .selected .frontside .card,
+    .selected .backside, .selected .backside .card {
+        width: 340px;
+        height: 390px;
+    }
+
+    .selected .frontside .card .card-body img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .selected .backside .card .card-body img {
+        width: 340px;
+        height: 150px;
+    }
+
+    .selected .frontside .card .card-body .card-title {
+        font-size: 30px;
+    }
+
+    .selected .frontside .card .card-body p {
+        margin: 1.5rem;
+        font-size: 20px;
+    }
+
+    .selected .backside .card .card-body p {
+        margin-top: 0.5rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: 20px;
+    }
+
+    .selected .backside .card .card-text {
+        margin-top: 0.5em;
+    }
+
+    .selected .backside {
+        -webkit-animation: shadow-drop-2-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: shadow-drop-2-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes shadow-drop-2-center {
+      0% {
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 20px 0px blue;
+      }
+    }
+    @keyframes shadow-drop-2-center {
+      0% {
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 20px 0px blue;
+      }
+    }
+
+    .selected .frontside {
+        -webkit-animation: shadow-drop-1-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: shadow-drop-1-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes shadow-drop-1-center {
+      0% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+      }
+    }
+    @keyframes shadow-drop-1-center {
+      0% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+        box-shadow: 0 0 20px 0px blue;
+      }
+    }
+
+
+    .unflip .backside {
+        -webkit-animation: shadow-drop-1-blank-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: shadow-drop-1-blank-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .unflip .frontside {
+        -webkit-animation: shadow-drop-2-blank-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: shadow-drop-2-blank-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes shadow-drop-2-blank-center {
+      0% {
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
+    @keyframes shadow-drop-2-blank-center {
+      0% {
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
+
+    .selected .frontside {
+        -webkit-animation: shadow-drop-1-blank-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: shadow-drop-1-blank-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes shadow-drop-1-blank-center {
+      0% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+      }
+    }
+    @keyframes shadow-drop-1-blank-center {
+      0% {
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+        box-shadow: 0 0 20px 0px blue;
+      }
+    }
