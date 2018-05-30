@@ -3,6 +3,7 @@ var primeraPortrait;
 
 var bootState = {
     preload: function(){
+
         game.load.image('landscape', 'SpaceInvaders/assets/letras/landscape.png');
         game.load.image('phone', 'SpaceInvaders/assets/images/phone.png');
         game.load.image('recarga', 'SpaceInvaders/assets/letras/recarga.png');
@@ -10,6 +11,7 @@ var bootState = {
         game.load.image('gira_fondo', 'SpaceInvaders/assets/images/gira_fondo.png');
     },
     create: function() {
+
         game.physics.startSystem(Phaser.Physics.ARCADE); // le decimos que vamos a usar las físicas en nuestro juego
 
         primeraPortrait = false;
@@ -79,6 +81,7 @@ var menuState = {
         game.load.image('titulo', 'SpaceInvaders/assets/images/titulo.png');
         game.load.image('fadeOut', 'SpaceInvaders/assets/images/fadeOut.png');
         game.load.image('pulsaEspacio', 'SpaceInvaders/assets/letras/pulsaEspacio.png');
+        game.load.image('pulsaA', 'SpaceInvaders/assets/letras/pulsaA.png');
         game.load.image('tocaPantalla', 'SpaceInvaders/assets/letras/tocaPantalla.png');
 		game.load.image('gameOver', 'SpaceInvaders/assets/letras/gameOver.png');
 		game.load.image('reglas', 'SpaceInvaders/assets/images/reglas.png');
@@ -146,7 +149,9 @@ var menuState = {
         image.width = image.width*X;
         image.height = image.height*Y;
 
-        if(game.device.desktop)
+        if(game.global.exposition)
+            label_pulsa = game.add.image(game.world.centerX, image.y+image.height/2+5*Y, 'pulsaA');
+        else if(game.device.desktop)
             label_pulsa = game.add.image(game.world.centerX, image.y+image.height/2+5*Y, 'pulsaEspacio');
         else
             label_pulsa = game.add.image(game.world.centerX, image.y+image.height/2+5*Y, 'tocaPantalla');

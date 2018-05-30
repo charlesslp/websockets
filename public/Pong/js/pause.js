@@ -42,6 +42,14 @@ function pause(){
 
         selectPause = "continue";
 
+        if(!game.device.desktop){
+            arrow1.destroy();
+            arrow2.destroy();
+            textContinue.inputEnabled = true;
+            textSalir.inputEnabled = true;
+            textContinue.events.onInputDown.add(function() {select_pause('continue')}, this);
+            textSalir.events.onInputDown.add(function() {select_pause('salir')}, this);
+        }
 
         for (var i = 0; i < 2; i++) {
             players[i].body.velocity.y = 0;
@@ -59,7 +67,7 @@ function pause(){
         cursors.w.isDown = false;
         cursors.s.isDown = false;
 
-        cursors.x.isDown = false;
+        cursors.space.isDown = false;
         cursors.enter.isDown = false;
 
 
@@ -74,18 +82,22 @@ function un_pause(){
     pause_fondo.destroy();
     textContinue.destroy();
     textSalir.destroy();
-    arrow1.destroy();
-    arrow2.destroy();
+    if(arrow1)
+        arrow1.destroy();
+    if(arrow2)
+        arrow2.destroy();
     selectPause = "";
     who_pressed = -1;
 
-    ball.body.velocity.x = vel_x;
-    ball.body.velocity.y = vel_y;
+    if(ball) {
+        ball.body.velocity.x = vel_x;
+        ball.body.velocity.y = vel_y;
+    }
 }
 
 function moveArrow(order){
 
-    console.log(order)
+    console.log(order);
 
     if(order === "up"){
         if(selectPause === "salir"){
@@ -116,12 +128,20 @@ function selec_salir(){
     selectPause = "salir";
 }
 
-function select_pause(){
+function select_pause(selectEspecific){
+
+    if(selectEspecific)
+        selectPause = selectEspecific;
+
     switch(selectPause){
         case "continue": un_pause(); break;
         case "salir": {
-            window.location.href = '/catalogue.html?id=' + id_juego;
+            if(game.global.exposition)
+                window.location.href = '/catalogue.html?id=' + id_juego;
+            else
+                window.location.href = '/';
             break;
         }
+        default: un_pause(); break;
     }
 }

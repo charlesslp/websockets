@@ -10,6 +10,11 @@ socket.on("conectado", function(){
     id_juego = url.searchParams.get("id");
     socket.emit("recibida_conn", url.searchParams.get("id"));
 
+    url = new URL(document.URL);
+    if(url.searchParams.get("mode") === 'exposition'){
+        game.device.desktop = true;
+        game.global.exposition = true;
+    }
 });
 
 
@@ -23,14 +28,14 @@ socket.on('press', function(data){
     	switch(data.userdata.key){
     		case "A_on": {
                 if(data.userdata.userID === data.ids_users[0])
-                    cursors.x.isDown = true;
+                    cursors.space.isDown = true;
                 else if(data.userdata.userID === data.ids_users[1])
                     cursors.enter.isDown = true;
                 break;
             }
             case "A_off": {
                 if(data.userdata.userID === data.ids_users[0])
-                    cursors.x.isDown = false;
+                    cursors.space.isDown = false;
                 else if(data.userdata.userID === data.ids_users[1])
                     cursors.enter.isDown = false;
                 break;

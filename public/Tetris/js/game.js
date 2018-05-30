@@ -4,7 +4,7 @@ var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, "
 
 game.global = {
 	x: window.innerWidth/560,
-	y: window.innerHeight/370
+	y: window.innerHeight/370,
 }
 
 game.state.add('play', playState);

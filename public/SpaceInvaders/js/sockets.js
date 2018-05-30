@@ -10,8 +10,12 @@ socket.on("conectado", function(){
     id_juego = url.searchParams.get("id");
     socket.emit("recibida_conn", url.searchParams.get("id"));
 
-    console.log(game.world.width);
-    game.device.desktop = true;
+    url = new URL(document.URL)
+    if(url.searchParams.get("mode") === 'exposition'){
+        game.device.desktop = true;
+        game.global.exposition = true;
+    }
+    console.log(url.searchParams.get("mode"));
 
 });
 

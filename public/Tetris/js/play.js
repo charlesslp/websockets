@@ -26,7 +26,10 @@ var playState = {
 
         jugando = true;
 
-        var background = game.add.sprite(game.world.centerX-32*7, game.world.height-32*28, "background");
+        var background = game.add.sprite(game.world.centerX-LONG*11, game.world.height-LONG*22, "background");
+
+        background.width=LONG*22;
+        background.height=LONG*22;
 
         ini_token();
 

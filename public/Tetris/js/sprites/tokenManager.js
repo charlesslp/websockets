@@ -1,11 +1,11 @@
 
 function s_builder(token, token2, token3, token4){
-    token.y = game.world.height-LONG*HIGH;
-    token.x = game.world.centerX-LONG;
-    token2.y = game.world.height-LONG*(HIGH-1);
-    token2.x = game.world.centerX-LONG;
-    token3.y = game.world.height-LONG*(HIGH-1);
-    token4.y = game.world.height-LONG*(HIGH-2);
+    token.y = token.y-LONG*HIGH;
+    token.x = token.x-LONG;
+    token2.y = token2.y-LONG*(HIGH-1);
+    token2.x = token2.x-LONG;
+    token3.y = token3.y-LONG*(HIGH-1);
+    token4.y = token4.y-LONG*(HIGH-2);
 
     token.frame = 1;
     token2.frame = 1;
@@ -46,12 +46,12 @@ function s_turn(token, token2, token3, token4){
 }
 
 function z_builder(token, token2, token3, token4){
-    token.y = game.world.height-LONG*HIGH;
-    token2.y = game.world.height-LONG*(HIGH-1);
-    token3.y = game.world.height-LONG*(HIGH-1);
-    token3.x = game.world.centerX-LONG;
-    token4.y = game.world.height-LONG*(HIGH-2);
-    token4.x = game.world.centerX-LONG;
+    token.y = token.y-LONG*HIGH;
+    token2.y = token2.y-LONG*(HIGH-1);
+    token3.y = token3.y-LONG*(HIGH-1);
+    token3.x = token3.x-LONG;
+    token4.y = token4.y-LONG*(HIGH-2);
+    token4.x = token4.x-LONG;
 
     token.frame = 2;
     token2.frame = 2;
@@ -92,12 +92,12 @@ function z_turn(token, token2, token3, token4){
 }
 
 function o_builder(token, token2, token3, token4){
-    token.y = game.world.height-LONG*HIGH;
-    token2.y = game.world.height-LONG*(HIGH-1);
-    token3.y = game.world.height-LONG*HIGH;
-    token3.x = game.world.centerX-LONG;
-    token4.y = game.world.height-LONG*(HIGH-1);
-    token4.x = game.world.centerX-LONG;
+    token.y = token.y-LONG*HIGH;
+    token2.y = token2.y-LONG*(HIGH-1);
+    token3.y = token3.y-LONG*HIGH;
+    token3.x = token3.x-LONG;
+    token4.y = token4.y-LONG*(HIGH-1);
+    token4.x = token4.x-LONG;
 
     token.frame = 4;
     token2.frame = 4;
@@ -106,10 +106,10 @@ function o_builder(token, token2, token3, token4){
 }
 
 function i_builder(token, token2, token3, token4){
-    token.y = game.world.height-LONG*HIGH;
-    token2.y = game.world.height-LONG*(HIGH-1);
-    token3.y = game.world.height-LONG*(HIGH-2);
-    token4.y = game.world.height-LONG*(HIGH-3);
+    token.y = token.y-LONG*HIGH;
+    token2.y = token2.y-LONG*(HIGH-1);
+    token3.y = token3.y-LONG*(HIGH-2);
+    token4.y = token4.y-LONG*(HIGH-3);
 
     token.frame = 3;
     token2.frame = 3;
@@ -160,11 +160,11 @@ function i_turn(token, token2, token3, token4){
 }
 
 function t_builder(token, token2, token3, token4){
-    token.y = game.world.height-LONG*HIGH;
-    token2.y = game.world.height-LONG*(HIGH-1);
-    token3.y = game.world.height-LONG*(HIGH-2);
-    token4.y = game.world.height-LONG*(HIGH-1);
-    token4.x = game.world.centerX-LONG;
+    token.y = token.y-LONG*HIGH;
+    token2.y = token2.y-LONG*(HIGH-1);
+    token3.y = token3.y-LONG*(HIGH-2);
+    token4.y = token4.y-LONG*(HIGH-1);
+    token4.x = token4.x-LONG;
 
     token.frame = 0;
     token2.frame = 0;
@@ -221,11 +221,11 @@ function t_turn(token, token2, token3, token4){
 }
 
 function j_builder(token, token2, token3, token4){
-    token.y = game.world.height-LONG*HIGH;
-    token2.y = game.world.height-LONG*(HIGH-1);
-    token3.y = game.world.height-LONG*(HIGH-2);
-    token4.y = game.world.height-LONG*(HIGH-2);
-    token4.x = game.world.centerX-LONG;
+    token.y = token.y-LONG*HIGH;
+    token2.y = token2.y-LONG*(HIGH-1);
+    token3.y = token3.y-LONG*(HIGH-2);
+    token4.y = token4.y-LONG*(HIGH-2);
+    token4.x = token4.x-LONG;
 
     token.frame = 6;
     token2.frame = 6;
@@ -290,13 +290,13 @@ function j_turn(token, token2, token3, token4){
 }
 
 function l_builder(token, token2, token3, token4){
-    token.y = game.world.height-LONG*HIGH;
-    token.x = game.world.centerX-LONG;
-    token2.y = game.world.height-LONG*(HIGH-1);
-    token2.x = game.world.centerX-LONG;
-    token3.y = game.world.height-LONG*(HIGH-2);
-    token3.x = game.world.centerX-LONG;
-    token4.y = game.world.height-LONG*(HIGH-2);
+    token.y = token.y-LONG*HIGH;
+    token.x = token.x-LONG;
+    token2.y = token2.y-LONG*(HIGH-1);
+    token2.x = token2.x-LONG;
+    token3.y = token3.y-LONG*(HIGH-2);
+    token3.x = token3.x-LONG;
+    token4.y = token4.y-LONG*(HIGH-2);
 
     token.frame = 5;
     token2.frame = 5;
@@ -393,7 +393,7 @@ function canIMove (token, token2, token3, token4) {
         }
     });
 
-    if(token.y > game.world.height-LONG*8 || token2.y > game.world.height-LONG*8 || token3.y > game.world.height-LONG*8 || token4.y > game.world.height-LONG*8){
+    if(token.y > game.world.height-LONG*2 || token2.y > game.world.height-LONG*2 || token3.y > game.world.height-LONG*2 || token4.y > game.world.height-LONG*2){
         can_move = false;
     }
 

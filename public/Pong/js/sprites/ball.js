@@ -9,7 +9,7 @@ function ini_ball(){
 
     game.physics.arcade.enable(ball);
 
-    ball.direction = true; // true = derecha
+    ball.direction = false; // true = derecha
     ball.body.velocity.y = 200*Y;
 
 }
@@ -93,18 +93,36 @@ function gana(i){
 
     ball.kill();
 
-    preparado_p1 = game.add.text(game.world.centerX/2, game.world.centerY, '¿Preparado?\n    Pulsa x', { fontSize: '20px', fill: '#ffffff' });
+
+    preparado_p1 = game.add.text(game.world.centerX/2+10*X, game.world.centerY, message1, { fontSize: '20px', fill: '#ffffff' });
     preparado_p1.width = preparado_p1.width*X;
     preparado_p1.height = preparado_p1.height*Y;
     preparado_p1.anchor.setTo(0.5,0.5);
 
-    preparado_p2 = game.add.text(game.world.centerX+game.world.centerX/2, game.world.centerY, '¿Preparado?\n  Pulsa enter', { fontSize: '20px', fill: '#ffffff' });
-    preparado_p2.width = preparado_p2.width*X;
-    preparado_p2.height = preparado_p2.height*Y;
-    preparado_p2.anchor.setTo(0.5,0.5);
+    if(!game.device.desktop){
+        preparado_p1.x += game.world.centerX - preparado_p1.width/2;
+    }
+    if(numPlayers > 1){
+        preparado_p2 = game.add.text(game.world.centerX-10*X+game.world.centerX/2, game.world.centerY, message2, { fontSize: '20px', fill: '#ffffff' });
+        preparado_p2.width = preparado_p2.width*X;
+        preparado_p2.height = preparado_p2.height*Y;
+        preparado_p2.anchor.setTo(0.5,0.5);
+    }
+    else
+        p2_ready = true;
 
+    var endMessage = '';
 
-    endText = game.add.text(game.world.centerX, 0, '¡Player '+i+' Gana!', { fontSize: '50px', fill: '#ffffff' });
+    if(numPlayers > 1)
+        endMessage = '¡Player '+i+' Gana!';
+    else {
+        if(i === 1)
+            endMessage = '¡Has ganado!';
+        else
+            endMessage = '¡Has perdido!';
+    }
+
+    endText = game.add.text(game.world.centerX, 0, endMessage, { fontSize: '50px', fill: '#ffffff' });
     endText.width = endText.width*X;
     endText.height = endText.height*Y;
     endText.anchor.setTo(0.5,0.5);

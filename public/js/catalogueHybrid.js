@@ -16,6 +16,8 @@ socket.on("conectado", function(){
     if(url.searchParams.get("id")){
 	    id_juego = url.searchParams.get("id");
 	    socket.emit("recibida_conn", url.searchParams.get("id"));
+		document.getElementById("rand_num").innerHTML = id_juego;
+		document.getElementById("rand_num2").innerHTML = id_juego;
 	    makeCode();
 	    mostrar_menu();
 	}
@@ -39,7 +41,8 @@ socket.on('press', function(data){
 
 		switch(data.userdata.key){
 			case "A_on": {
-				window.location.href = juegos[juego_seleccionado].url+'?id=' + id_juego;
+				console.log("ey")
+				window.location.href = juegos[juego_seleccionado].url+'?id=' + id_juego + '&mode=exposition';
 				break;
 			}
 			case "right_off": {

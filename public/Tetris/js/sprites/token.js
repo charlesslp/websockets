@@ -28,8 +28,8 @@ var score = 0;
 
 function ini_token(){
 
-    limitLeft = game.world.centerX-LONG*5;
-    limitRight = game.world.centerX+LONG*5;
+    limitLeft = game.world.centerX-LONG*9;
+    limitRight = game.world.centerX+LONG;
 
     tokens_group = game.add.group();
     tokens_group.enableBody = true;
@@ -37,13 +37,15 @@ function ini_token(){
     tokens_stopped = game.add.group();
     tokens_stopped.enableBody = true;
 
-    nextToken = game.add.sprite(game.world.centerX+LONG*9, game.world.height-LONG*12-LONG/2, 'nextTok');
+    nextToken = game.add.sprite(game.world.centerX+LONG*5, game.world.height-LONG*6-LONG/2, 'nextTok');
+    nextToken.width = LONG*3;
+    nextToken.height = LONG*4;
     iniScore();
 
     random = Math.floor((Math.random() * 7));
     createNewToken();
 
-    var bottom_line = game.add.sprite(0, game.world.height-LONG*7, 'line');
+    var bottom_line = game.add.sprite(0, game.world.height-LONG, 'line');
     bottom_line.width = game.world.width;
 
 
@@ -54,47 +56,6 @@ function ini_token(){
     cursors.down = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
 
     cursors.space = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
-
-/*
-    var y_test = 10;
-    //token = tokens_stopped.create(game.world.centerX+LONG*5, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*5, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*4, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*3, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*2, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*2, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*3, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*4, game.world.height-LONG*y_test, 'token');
-
-    y_test = 11;
-    //token = tokens_stopped.create(game.world.centerX+LONG*5, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*5, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*4, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*3, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*2, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*2, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*3, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*4, game.world.height-LONG*y_test, 'token');
-
-    y_test = 12;
-    token = tokens_stopped.create(game.world.centerX-LONG*5, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*4, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*3, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG*2, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX-LONG, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*2, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*3, game.world.height-LONG*y_test, 'token');
-    token = tokens_stopped.create(game.world.centerX+LONG*4, game.world.height-LONG*y_test, 'token');
-    */
-
 }
 
 function createNewToken() {
@@ -116,10 +77,20 @@ function createNewToken() {
         level+=0.02;
     }
 
-    token = tokens_group.create(game.world.centerX, game.world.centerY, 'token');
-    token2 = tokens_group.create(game.world.centerX, game.world.centerY, 'token');
-    token3 = tokens_group.create(game.world.centerX, game.world.centerY, 'token');
-    token4 = tokens_group.create(game.world.centerX, game.world.centerY, 'token');
+    token = tokens_group.create(game.world.centerX-LONG*4, game.world.height, 'token');
+    token2 = tokens_group.create(game.world.centerX-LONG*4, game.world.height, 'token');
+    token3 = tokens_group.create(game.world.centerX-LONG*4, game.world.height, 'token');
+    token4 = tokens_group.create(game.world.centerX-LONG*4, game.world.height, 'token');
+
+    token.width = LONG;
+    token2.width = LONG;
+    token3.width = LONG;
+    token4.width = LONG;
+    token.height = LONG;
+    token2.height = LONG;
+    token3.height = LONG;
+    token4.height = LONG;
+
 
     switch(random){
         case 1: s_builder(token, token2, token3, token4); type="s"; break;
@@ -164,16 +135,18 @@ function step_token(){
     });
 
     tokens_group.children.map(function (item, index){
-        if(item.y >= (game.world.height-LONG*8)){
+        if(item.y >= game.world.height-LONG*2){
             stop_next = true;
         }
     });
 
     time_token+=level;
 
+    var can_move;
+
     if(!pressedMove && cursors.left.isDown){
 
-        var can_move = true;
+        can_move = true;
 
         tokens_group.children.map(function (item, index){
             tokens_stopped.children.map(function (item2, index2){
@@ -199,7 +172,7 @@ function step_token(){
     }
     else if(!pressedMove && cursors.right.isDown){
 
-        var can_move = true;
+        can_move = true;
 
         tokens_group.children.map(function (item, index){
             tokens_stopped.children.map(function (item2, index2){
@@ -322,16 +295,18 @@ function step_token(){
     if(newTok){
         newTok = false;
 
-        var children_length = tokens_group.children.length
+        var children_length = tokens_group.children.length;
 
         for (var i = 0; i < children_length; i++) {
 
             var stopped_token = tokens_stopped.create(tokens_group.children[0].x, tokens_group.children[0].y, 'token');
+            stopped_token.width = LONG;
+            stopped_token.height = LONG;
             stopped_token.frame = tokens_group.children[0].frame;
             tokens_group.children[0].destroy();
         }
 
-        var children_length = tokens_stopped.children.length;
+        children_length = tokens_stopped.children.length;
 
         for (var i = 0; i < children_length; i++) {
             stopedLines[tokens_stopped.children[i].y] = 0;
@@ -410,14 +385,26 @@ function resetGame() {
 }
 
 function iniScore(){
-    game.add.text(game.world.centerX+LONG*8+LONG/2, game.world.height-LONG*17-LONG/2, 'Level', { fontSize: '30px'});
-    game.add.text(game.world.centerX+LONG*8+LONG/2, game.world.height-LONG*20-LONG/2, 'Lines', { fontSize: '30px'});
-    game.add.text(game.world.centerX+LONG*8.8, game.world.height-LONG*25.8, 'Score', { fontSize: '35px'});
+    var text = game.add.text(game.world.centerX+LONG*4+LONG/2, game.world.height-LONG*11-LONG/2, 'Level', { fontSize: '30px'});
+    text.width = 2.4*LONG;
+    text.height = 1.25*LONG;
+    text = game.add.text(game.world.centerX+LONG*4+LONG/2, game.world.height-LONG*14-LONG/2, 'Lines', { fontSize: '30px'});
+    text.width = 2.4*LONG;
+    text.height = 1.25*LONG;
+    text = game.add.text(game.world.centerX+LONG*4.8, game.world.height-LONG*19.8, 'Score', { fontSize: '35px'});
+    text.width = 2.4*LONG;
+    text.height = 1.25*LONG;
 
 
-    game.add.text(game.world.centerX+LONG*11, game.world.height-LONG*16-LONG/2, '1', { fontSize: '30px'});
-    linesText = game.add.text(game.world.centerX+LONG*11, game.world.height-LONG*19-LONG/2, '0', { fontSize: '30px'});
-    scoreText = game.add.text(game.world.centerX+LONG*8.8, game.world.height-LONG*24, '0', { fontSize: '35px'});
+    levelText = game.add.text(game.world.centerX+LONG*7, game.world.height-LONG*10-LONG/2, '1', { fontSize: '30px'});
+    levelText.width = 0.5*LONG;
+    levelText.height = 1.25*LONG;
+    linesText = game.add.text(game.world.centerX+LONG*7, game.world.height-LONG*13-LONG/2, '0', { fontSize: '30px'});
+    linesText.width = 0.5*LONG;
+    linesText.height = 1.25*LONG;
+    scoreText = game.add.text(game.world.centerX+LONG*4.8, game.world.height-LONG*18, '0', { fontSize: '35px'});
+    scoreText.width = 0.5*LONG;
+    scoreText.height = 1.25*LONG;
 
     totalLines = 0;
     score = 0;
@@ -435,6 +422,7 @@ function updateScore(newLines){
 
     linesText.text = totalLines;
     scoreText.text = score;
+    levelText.text = ''+Math.floor(parseInt(totalLines)/10);
 }
 
 function resetScore(){

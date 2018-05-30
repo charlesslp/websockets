@@ -26,11 +26,11 @@ window.addEventListener('resize', function() {
         }
     
     }else if(!game.device.desktop && window.innerWidth >= window.innerHeight){
-        game.width = window.innerWidth
+        game.width = window.innerWidth;
         game.height = window.innerHeight;
         game.renderer.resize(game.width,game.height);
 
-        game.world.width = window.innerWidth
+        game.world.width = window.innerWidth;
         game.world.height = window.innerHeight;
 
         if(label_portrait)
@@ -44,7 +44,6 @@ window.addEventListener('resize', function() {
 
         game.global.x = window.innerWidth/560;
         game.global.y = window.innerHeight/370;
-
         if(primeraPortrait){
             primeraPortrait = false;
             game.state.start('menu');

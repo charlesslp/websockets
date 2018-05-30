@@ -35,8 +35,11 @@ var img_vidas;  //array - Guarda las imágenes de las vidas mostradas en el HUD
 var scoreText;  //text - Muestra el score
 var livesText;  //text - Muestra las vidas
 
-var controller;      // sprite - Mando para cuando se juega en movil
+var controller;     // sprite - Mando para cuando se juega en movil
 
+var isDown = false; //for pause mode
+var isUp = false;
+var isSpace = false;
 
 // VARIABLES GLOBALES
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -83,6 +86,10 @@ var playState = {
     },
     update: function() {
 
+        if(cursors.escape.isDown && !isPaused){
+            pause();
+        }
+
         if(!isPaused){
             if(!stop_all){
                 step_player();
@@ -111,6 +118,28 @@ var playState = {
             step_bala();
 
             step_misil();
+        }
+        else {
+            if(cursors.down.isDown && !isDown){
+                moveArrow("down");
+                isDown = true;
+            }
+            else if(!cursors.down.isDown)
+                isDown = false;
+
+            if(cursors.up.isDown && !isUp){
+                moveArrow("up");
+                isUp = true;
+            }
+            else if(!cursors.up.isDown)
+                isUp = false;
+
+            if(cursors.space.isDown && !isSpace){
+                select_pause();
+                isSpace = true;
+            }
+            else if(!cursors.space.isDown)
+                isSpace = false;
         }
 
     }

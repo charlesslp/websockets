@@ -19,6 +19,7 @@ var ini_jugador = function(){
 
     cursors = game.input.keyboard.createCursorKeys(); // entradas por teclado
     cursors.space = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+    cursors.escape = game.input.keyboard.addKey(Phaser.KeyCode.ESC);
 
     shot_sound = game.add.audio('shoot', 0.5);
 

@@ -16,22 +16,33 @@ function ini_players(){
     }
 
     cursors = game.input.keyboard.createCursorKeys(); // entradas por teclado
-    cursors.up = game.input.keyboard.addKey(Phaser.KeyCode.UP);
-    cursors.down = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
-    cursors.w = game.input.keyboard.addKey(Phaser.KeyCode.W);
-    cursors.s = game.input.keyboard.addKey(Phaser.KeyCode.S);
 
-    cursors.x = game.input.keyboard.addKey(Phaser.KeyCode.X);
-    cursors.enter = game.input.keyboard.addKey(Phaser.KeyCode.ENTER);
+    cursors.escape = game.input.keyboard.addKey(Phaser.KeyCode.ESC);
 
+    if(numPlayers > 1){
+        cursors.up = game.input.keyboard.addKey(Phaser.KeyCode.UP);
+        cursors.down = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
+        cursors.w = game.input.keyboard.addKey(Phaser.KeyCode.W);
+        cursors.s = game.input.keyboard.addKey(Phaser.KeyCode.S);
 
+        cursors.space = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+        cursors.enter = game.input.keyboard.addKey(Phaser.KeyCode.ENTER);
+    }
+    else {
+        cursors.w = game.input.keyboard.addKey(Phaser.KeyCode.UP);
+        cursors.s = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
+
+        cursors.enter = game.input.keyboard.addKey(Phaser.KeyCode.ENTER);
+        cursors.space = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+    }
 
 }
 
 function step_players(){
 
     players[0].body.velocity.y = 0;
-    players[1].body.velocity.y = 0;
+    if(numPlayers > 1)
+        players[1].body.velocity.y = 0;
 
 
     if(cursors.w.isDown){
@@ -40,12 +51,13 @@ function step_players(){
     else if(cursors.s.isDown){
         players[0].body.velocity.y = 300*Y;
     }
-
-    if(cursors.up.isDown){
-        players[1].body.velocity.y = -300*Y;
-    }
-    else if(cursors.down.isDown){
-        players[1].body.velocity.y = 300*Y;
+    if(numPlayers > 1) {
+        if (cursors.up.isDown) {
+            players[1].body.velocity.y = -300 * Y;
+        }
+        else if (cursors.down.isDown) {
+            players[1].body.velocity.y = 300 * Y;
+        }
     }
 
 }
