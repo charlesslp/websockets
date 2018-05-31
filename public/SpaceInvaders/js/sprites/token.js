@@ -57,6 +57,7 @@ function ini_token(){
     cursors.down = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
 
     cursors.space = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+    cursors.escape = game.input.keyboard.addKey(Phaser.KeyCode.ESC);
 }
 
 function createNewToken() {

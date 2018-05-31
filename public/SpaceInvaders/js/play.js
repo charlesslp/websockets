@@ -46,9 +46,35 @@ var playState = {
     },
     update: function() {
 
+        if(cursors.escape.isDown && !isPaused){
+            pause();
+        }
+
         if(jugando){
             if(!isPaused)
                 step_token();
+            else{
+                if(cursors.down.isDown && !isDown){
+                    moveArrow("down");
+                    isDown = true;
+                }
+                else if(!cursors.down.isDown)
+                    isDown = false;
+
+                if(cursors.up.isDown && !isUp){
+                    moveArrow("up");
+                    isUp = true;
+                }
+                else if(!cursors.up.isDown)
+                    isUp = false;
+
+                if(cursors.space.isDown && !isSpace){
+                    select_pause();
+                    isSpace = true;
+                }
+                else if(!cursors.space.isDown)
+                    isSpace = false;
+            }
         }
         else {
 

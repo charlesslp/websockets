@@ -42,6 +42,15 @@ function pause(){
 
         selectPause = "continue";
 
+        if(!game.device.desktop){
+            arrow1.destroy();
+            arrow2.destroy();
+            textContinue.inputEnabled = true;
+            textSalir.inputEnabled = true;
+            textContinue.events.onInputDown.add(function() {select_pause('continue')}, this);
+            textSalir.events.onInputDown.add(function() {select_pause('salir')}, this);
+        }
+
         cursors.left.isDown = false;
         cursors.right.isDown = false;
         cursors.down.isDown = false;
@@ -64,7 +73,7 @@ function un_pause(){
     selectPause = "";
     who_pressed = -1;
 
-    
+
     cursors.left.isDown = false;
     cursors.right.isDown = false;
     cursors.down.isDown = false;
@@ -104,12 +113,20 @@ function selec_salir(){
     selectPause = "salir";
 }
 
-function select_pause(){
+function select_pause(selectEspecific){
+
+    if(selectEspecific)
+        selectPause = selectEspecific;
+
     switch(selectPause){
         case "continue": un_pause(); break;
         case "salir": {
-            window.location.href = '/catalogue.html?id=' + id_juego;
+            if(game.global.exposition)
+                window.location.href = '/catalogue.html?id=' + id_juego;
+            else
+                window.location.href = '/';
             break;
         }
+        default: un_pause(); break;
     }
 }
