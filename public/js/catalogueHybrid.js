@@ -153,8 +153,23 @@ socket.on('refresh_page', function(){
 function handleFlip(id_selected){
 
 	var element = document.getElementById(id_selected);
+
+	var offset = 100;
+
+	if(getJump() === 1 && element.dataset.index === "0"){
+        offset = 450;
+    }
+    else if(getJump() === 2 && (element.dataset.index === "0" || element.dataset.index === "1")){
+        offset = 450;
+    }
+    else if(getJump() === 3 && (element.dataset.index === "0" || element.dataset.index === "1" || element.dataset.index === "2")){
+        offset = 450;
+    }
+
+    console.log(offset, getJump(), element.dataset.index);
+
 	$('html, body').animate({
-        scrollTop: $('#'+id_selected).offset().top - 100
+        scrollTop: $('#'+id_selected).offset().top - offset
     }, 1000);
 
 	element.classList.toggle('selected');
@@ -183,7 +198,7 @@ window.onload = function(){
 
 			main.innerHTML += ''
 			+'<div class="col-12 col-xs-12 my-md col-md-4 col-lg-4 no-padding">'
-				+'<div id="'+item.id+'" class="image-flip '+selected+'">'
+				+'<div id="'+item.id+'" class="image-flip '+selected+'" data-index="'+index+'">'
 					+'<div class="mainflip no-padding">'
 
 						+'<div class="frontside">'
