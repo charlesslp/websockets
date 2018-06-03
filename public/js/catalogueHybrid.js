@@ -168,6 +168,8 @@ function handleFlip(id_selected){
 
     console.log(offset, getJump(), element.dataset.index);
 
+    $('html, body').stop();
+    
 	$('html, body').animate({
         scrollTop: $('#'+id_selected).offset().top - offset
     }, 1000);
