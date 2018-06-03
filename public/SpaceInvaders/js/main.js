@@ -41,6 +41,8 @@ var isDown = false; //for pause mode
 var isUp = false;
 var isSpace = false;
 
+var button;
+
 // VARIABLES GLOBALES
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -82,6 +84,14 @@ var playState = {
         ini_misiles();
 
         ini_HUD();
+
+        if(!game.device.desktop){
+            button = game.add.button(game.world.width-42*X, 2*Y, 'buttonPause', function (){
+                pause();
+            }, this);
+            button.width = 40*X;
+            button.height = 40*Y;
+        }
 
     },
     update: function() {

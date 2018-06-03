@@ -60,6 +60,23 @@ function pause(){
         for (var i = 0; i < balas.children.length; i++){
             balas.children[i].body.velocity.y = 0;
         }
+
+
+        if(!game.device.desktop){
+            arrow1.destroy();
+            arrow2.destroy();
+            textContinue.inputEnabled = true;
+            textSonido.inputEnabled = true;
+            textSalir.inputEnabled = true;
+            textContinue.events.onInputDown.add(function() {select_pause('continue')}, this);
+            textSonido.events.onInputDown.add(function() {select_pause('sonido')}, this);
+            textSalir.events.onInputDown.add(function() {select_pause('salir')}, this);
+        }
+
+        cursors.left.isDown = false;
+        cursors.right.isDown = false;
+        cursors.space.isDown = false;
+
     }
     else {
         un_pause();
@@ -83,6 +100,10 @@ function un_pause(){
     for (var i = 0; i < balas.children.length; i++){
         balas.children[i].body.velocity.y = -400*Y;
     }
+
+    cursors.left.isDown = false;
+    cursors.right.isDown = false;
+    cursors.space.isDown = false;
 }
 
 function moveArrow(order){
@@ -132,7 +153,11 @@ function selec_salir(){
     selectPause = "salir";
 }
 
-function select_pause(){
+function select_pause(selectEspecific){
+
+    if(selectEspecific)
+        selectPause = selectEspecific;
+
     switch(selectPause){
         case "continue": un_pause(); break;
         case "sonido": {

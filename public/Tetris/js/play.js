@@ -29,6 +29,10 @@ var playState = {
         gameOver = false;
 
         var background = game.add.sprite(game.world.centerX-LONG*11, game.world.height-LONG*22, "background");
+        background.width=LONG*22;
+        background.height=LONG*22;
+
+        ini_token();
 
         if(!game.device.desktop){
             button = game.add.button(game.world.width-45*X, 5*Y, 'button', function (){
@@ -37,11 +41,6 @@ var playState = {
             button.width = 40*X;
             button.height = 40*Y;
         }
-
-        background.width=LONG*22;
-        background.height=LONG*22;
-
-        ini_token();
 
     },
     update: function() {

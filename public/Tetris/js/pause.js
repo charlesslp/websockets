@@ -5,9 +5,6 @@ var textSonido; // texto "sonido activado"
 var arrow;  // flecha seleccionadora
 var selectPause;    // a donde apunta la flecha
 
-var vel_x;
-var vel_y;
-
 function pause(){
 
     if(!isPaused){

@@ -70,6 +70,14 @@
         sprite.width = game.world.width;
         sprite.height = 2*Y;
 
+        if(!game.device.desktop){
+            sprite.width = game.world.width-47*X;
+
+            sprite = game.add.sprite(game.world.width-47*X, 0, 'fadeOut');
+            sprite.width = 2*X;
+            sprite.height = 29*Y;
+        }
+
         sprite = game.add.sprite(0, game.world.height-25*Y-Z, 'line');
         sprite.width = game.world.width;
         sprite.height = 2*Y;

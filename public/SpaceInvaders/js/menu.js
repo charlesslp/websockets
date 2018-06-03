@@ -90,6 +90,7 @@ var menuState = {
         game.load.image('pause_fondo', 'SpaceInvaders/assets/images/transparente.png');
 
 
+        game.load.image('buttonPause', 'SpaceInvaders/assets/images/botonPause.png');
         game.load.spritesheet('button', 'SpaceInvaders/assets/images/button.png', 50, 50);
         game.load.spritesheet('player', 'SpaceInvaders/assets/images/player.png', 26, 16);
         game.load.spritesheet('muro', 'SpaceInvaders/assets/images/muro4.png', 24, 24);
