@@ -1,4 +1,4 @@
-//Tetris
+//SpaceInvaders
 
 var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
 var fromSocket = false;
@@ -10,38 +10,35 @@ socket.on("conectado", function(){
     id_juego = url.searchParams.get("id");
     socket.emit("recibida_conn", url.searchParams.get("id"));
 
-    console.log(game.world.width);
-
-    url = new URL(document.URL);
+    url = new URL(document.URL)
     if(url.searchParams.get("mode") === 'exposition'){
         game.device.desktop = true;
         game.global.exposition = true;
     }
+
 
 });
 
 
 socket.on('press', function(data){
 
-
     if(data.userdata.userID === data.ids_users[0]){
         switch(data.userdata.key){
             case "A_on": {
-                if(!isPaused) {
+                if(game.state.getCurrentState().key === "menu"){
+                    music.stop();
+                    game.state.start('play');
+                }
+                else if(!isPaused) {
                     cursors.space.isDown = true;
                     fromSocket = true;
                 }
                 else {
-                    select_pause();
+                    select_pause(); // en main.js
                 }
                 break;
             }
-            case "A_off": {
-                cursors.space.isDown = false;
-                fromSocket = true;
-                break;
-            }
-            case "left_on": {
+            case "left_on": {   
                 cursors.left.isDown = true;
                 fromSocket = true;
                 break;
@@ -51,17 +48,12 @@ socket.on('press', function(data){
                 fromSocket = true;
                 break;
             }
-            case "down_on": {
-                cursors.down.isDown = true;
-                fromSocket = true;
-                break;
-            }
             case "left_off": {   
                 cursors.left.isDown = false;
                 fromSocket = true;
                 break;
             }
-            case "right_off": {
+            case "right_off": {   
                 cursors.right.isDown = false;
                 fromSocket = true;
                 break;
@@ -73,13 +65,7 @@ socket.on('press', function(data){
             }
             case "down_off": {
                 if(isPaused){
-                    cursors.down.isDown = false;
-                    fromSocket = true;
                     moveArrow("down"); // en main.js
-                }
-                else{
-                    cursors.down.isDown = false;
-                    fromSocket = true;
                 }
                 break;
             }

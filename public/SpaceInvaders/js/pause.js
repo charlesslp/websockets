@@ -5,9 +5,6 @@ var textSonido; // texto "sonido activado"
 var arrow;  // flecha seleccionadora
 var selectPause;    // a donde apunta la flecha
 
-var vel_x;
-var vel_y;
-
 function pause(){
 
     if(!isPaused){
@@ -20,12 +17,23 @@ function pause(){
         textContinue.width = textContinue.width*X;
         textContinue.height = textContinue.height*Y;
         textContinue.anchor.setTo(0.5,0.5);
+        
+        textSonido = game.add.text(game.world.centerX, 200*Y, "Sonido activado", { fontSize: '20px', fill: '#ffffff'});
+        textSonido.width = textSonido.width*X;
+        textSonido.height = textSonido.height*Y;
+        textSonido.anchor.setTo(0.5,0.5);
 
 
-        textSalir = game.add.text(game.world.centerX, 200*Y, "Salir", { fontSize: '20px', fill: '#ffffff'});
+        textSalir = game.add.text(game.world.centerX, 250*Y, "Salir", { fontSize: '20px', fill: '#ffffff'});
         textSalir.width = textSalir.width*X;
         textSalir.height = textSalir.height*Y;
         textSalir.anchor.setTo(0.5,0.5);
+
+
+        if(game.global.PLAY_MUSIC)
+            textSonido.text = "Sonido activado";
+        else
+            textSonido.text = "Sonido desactivado";
 
         arrow1 = game.add.sprite(textContinue.x-textContinue.width/2-35*X, textContinue.y, 'arrow');
         arrow1.anchor.setTo(0.5,0.5);
@@ -42,21 +50,16 @@ function pause(){
 
         selectPause = "continue";
 
-        if(!game.device.desktop){
-            arrow1.destroy();
-            arrow2.destroy();
-            textContinue.inputEnabled = true;
-            textSalir.inputEnabled = true;
-            textContinue.events.onInputDown.add(function() {select_pause('continue')}, this);
-            textSalir.events.onInputDown.add(function() {select_pause('salir')}, this);
+
+        player.body.velocity.x = 0;
+
+        for (var i = 0; i < misiles.children.length; i++){
+            misiles.children[i].body.velocity.y = 0;
         }
 
-        cursors.left.isDown = false;
-        cursors.right.isDown = false;
-        cursors.down.isDown = false;
-        cursors.space.isDown = false;
-
-
+        for (var i = 0; i < balas.children.length; i++){
+            balas.children[i].body.velocity.y = 0;
+        }
     }
     else {
         un_pause();
@@ -67,30 +70,36 @@ function un_pause(){
     isPaused = false;
     pause_fondo.destroy();
     textContinue.destroy();
+    textSonido.destroy();
     textSalir.destroy();
     arrow1.destroy();
     arrow2.destroy();
     selectPause = "";
-    who_pressed = -1;
 
+    for (var i = 0; i < misiles.children.length; i++){
+        misiles.children[i].body.velocity.y = 150*Y;
+    }
 
-    cursors.left.isDown = false;
-    cursors.right.isDown = false;
-    cursors.down.isDown = false;
-    cursors.space.isDown = false;
+    for (var i = 0; i < balas.children.length; i++){
+        balas.children[i].body.velocity.y = -400*Y;
+    }
 }
 
 function moveArrow(order){
 
-    console.log(order)
-
     if(order === "up"){
-        if(selectPause === "salir"){
+        if(selectPause ==="sonido"){
             selec_continue();
+        }
+        else if(selectPause === "salir"){
+            selec_sonido();
         }
     }
     else if(order === "down"){
-        if(selectPause === "continue"){
+        if(selectPause ==="continue"){
+            selec_sonido();
+        }
+        else if(selectPause === "sonido"){
             selec_salir();
         }
     }
@@ -105,6 +114,16 @@ function selec_continue(){
     selectPause = "continue";
 }
 
+
+function selec_sonido(){
+    arrow1.x = textSonido.x-textSonido.width/2-35*X;
+    arrow1.y = textSonido.y;
+    arrow2.x = textSonido.x+textSonido.width/2+35*X;
+    arrow2.y = textSonido.y;
+    selectPause = "sonido";
+}
+
+
 function selec_salir(){
     arrow1.x = textSalir.x-textSalir.width/2-35*X;
     arrow1.y = textSalir.y;
@@ -113,20 +132,23 @@ function selec_salir(){
     selectPause = "salir";
 }
 
-function select_pause(selectEspecific){
-
-    if(selectEspecific)
-        selectPause = selectEspecific;
-
+function select_pause(){
     switch(selectPause){
         case "continue": un_pause(); break;
-        case "salir": {
-            if(game.global.exposition)
-                window.location.href = '/catalogue.html?id=' + id_juego;
-            else
-                window.location.href = '/';
+        case "sonido": {
+            if(game.global.PLAY_MUSIC){
+                game.global.PLAY_MUSIC = false;
+                textSonido.text = "Sonido desactivado";
+            }
+            else{
+                game.global.PLAY_MUSIC = true;
+                textSonido.text = "Sonido activado";
+            }
             break;
         }
-        default: un_pause(); break;
+        case "salir": {
+            window.location.href = '/catalogue.html?id=' + id_juego;
+            break;
+        }
     }
 }

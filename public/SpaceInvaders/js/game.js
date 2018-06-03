@@ -1,15 +1,17 @@
 
+//var game = new Phaser.Game(560, 370, Phaser.AUTO, 'gameDiv');
 var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, "game");
 
 
-game.global = {
-	x: window.innerWidth/560,
-	y: window.innerHeight/370,
-}
+	game.global = {
+		PLAY_MUSIC: false,
 
-game.state.add('play', playState);
+		x: window.innerWidth/560,
+		y: window.innerHeight/370
+	}
 
-game.state.add('menu', menuState);
-game.state.add('play', playState);
+    game.state.add('menu', menuState);
+    game.state.add('boot', bootState);
+    game.state.add('play', playState);
 
-game.state.start('menu');
+    game.state.start('boot');

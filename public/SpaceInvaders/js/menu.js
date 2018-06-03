@@ -1,6 +1,54 @@
 
+var primeraPortrait;
+
+var bootState = {
+    preload: function(){
+
+        game.load.image('landscape', 'SpaceInvaders/assets/letras/landscape.png');
+        game.load.image('phone', 'SpaceInvaders/assets/images/phone.png');
+        game.load.image('recarga', 'SpaceInvaders/assets/letras/recarga.png');
+        game.load.image('recarga2', 'SpaceInvaders/assets/images/recarga2.png');
+        game.load.image('gira_fondo', 'SpaceInvaders/assets/images/gira_fondo.png');
+    },
+    create: function() {
+
+        game.physics.startSystem(Phaser.Physics.ARCADE); // le decimos que vamos a usar las físicas en nuestro juego
+
+        primeraPortrait = false;
+
+        if(!game.device.desktop && game.scale.isGamePortrait){
+
+            primeraPortrait = true;
+
+            game.stage.backgroundColor = "#e4ff00";
+
+            fondo_portrait = game.add.image(0, 0, 'gira_fondo');
+            fondo_portrait.width = game.world.width;
+            fondo_portrait.height = game.world.height;
+
+            label_portrait = game.add.image(window.innerWidth/2, window.innerHeight*3/5, 'landscape');
+            label_portrait.anchor.setTo(0.5);
+            label_portrait.scale.setTo(0.35,0.35);
+            label_portrait.width = window.innerWidth;
+            label_portrait.height = (label_portrait.height-25)*window.innerHeight/370;
+
+            phone_portrait = game.add.image(window.innerWidth/2, window.innerHeight*2/5, 'phone');
+            phone_portrait.anchor.setTo(0.5);
+        
+        }
+        else
+            game.state.start('menu');
+    }
+}
+
+
+
 var loadingLabel;   // image - Cargando...
 var label_pulsa;    // image - Toca para empezar o pulsa espacio para empezar
+
+var label_portrait;
+var phone_portrait;
+var fondo_portrait;
 
 var music;          // audio
 
@@ -12,23 +60,15 @@ var X;              // int - ecuacion para el resize
 var Y;              // int - ecuacion para el resize
 
 
-var isDown = false; //para el modo pausa
-var isUp = false;
-var isSpace = false;
-
-var numPlayers = 1;
-var tweenComplete = false;
-
 var menuState = {
 
 
-    preload: function() {
+	preload: function() {
 
         X = game.global.x;
         Y = game.global.y;
 
         pointerDown = false;
-        tweenComplete = false;
 
         game.stage.backgroundColor = "#ffffff";
 
@@ -36,148 +76,163 @@ var menuState = {
         loadingLabel.width = loadingLabel.width*X;
         loadingLabel.height = loadingLabel.height*Y;
         loadingLabel.anchor.setTo(0.5);
+        
 
-        game.load.image('fadeIn', 'Tetris/assets/images/token3.png');
-        game.load.image('logo', 'Tetris/assets/images/logo.png');
-        game.load.image('pulsaEspacio', 'Tetris/assets/images/pulsaEspacio.png');
-        game.load.image('pulsaA', 'Tetris/assets/images/pulsaA.png');
-        game.load.image('tocaPantalla', 'Tetris/assets/images/tocaPantalla.png');
-        game.load.spritesheet('arrow', 'Tetris/assets/images/greenArrow.png', 85, 85);
+        game.load.image('titulo', 'SpaceInvaders/assets/images/titulo.png');
+        game.load.image('fadeOut', 'SpaceInvaders/assets/images/fadeOut.png');
+        game.load.image('pulsaEspacio', 'SpaceInvaders/assets/letras/pulsaEspacio.png');
+        game.load.image('pulsaA', 'SpaceInvaders/assets/letras/pulsaA.png');
+        game.load.image('tocaPantalla', 'SpaceInvaders/assets/letras/tocaPantalla.png');
+		game.load.image('gameOver', 'SpaceInvaders/assets/letras/gameOver.png');
+		game.load.image('reglas', 'SpaceInvaders/assets/images/reglas.png');
+        game.load.image('line', 'SpaceInvaders/assets/images/line.png');
+        game.load.image('boton_disparo', 'SpaceInvaders/assets/images/boton_disparo2.png');
+        game.load.image('pause_fondo', 'SpaceInvaders/assets/images/transparente.png');
 
 
-        game.load.spritesheet('token', 'Tetris/assets/images/gameboy/Tetris_sprites/tetris_sheet.png', 32, 32);
-        game.load.spritesheet('nextTok', 'Tetris/assets/images/gameboy/Tetris_sprites/next_token_sheet.png', 96, 128);
-        game.load.image('background', 'Tetris/assets/images/gameboy/fondo.png');
-        game.load.image('line', 'Tetris/assets/images/token3.png');
-        game.load.image('pause_fondo', 'Tetris/assets/images/transparente.png');
-        game.load.image('gameOver', 'Tetris/assets/images/gameOver.png');
-        game.load.spritesheet('arrow', 'Tetris/assets/images/greenArrow.png', 85, 85);
-        game.load.image('button', 'Tetris/assets/images/boton.png');
-        game.load.image('fadeOut', 'Tetris/assets/images/fadeOut.png');
+        game.load.spritesheet('button', 'SpaceInvaders/assets/images/button.png', 50, 50);
+        game.load.spritesheet('player', 'SpaceInvaders/assets/images/player.png', 26, 16);
+        game.load.spritesheet('muro', 'SpaceInvaders/assets/images/muro4.png', 24, 24);
+        game.load.spritesheet('enemy', 'SpaceInvaders/assets/images/enemies.png', 24, 24);
+        game.load.spritesheet('boss', 'SpaceInvaders/assets/images/boss.png', 35, 17);
+        game.load.spritesheet('misil1', 'SpaceInvaders/assets/images/e_bullet1.png', 8, 11);
+        game.load.spritesheet('misil2', 'SpaceInvaders/assets/images/e_bullet2.png', 8, 11);
+        game.load.spritesheet('misil3', 'SpaceInvaders/assets/images/e_bullet3.png', 8, 11);
+        game.load.spritesheet('explosion', 'SpaceInvaders/assets/images/explosion.png', 11, 11);
+        game.load.spritesheet('bala', 'SpaceInvaders/assets/images/bullet.png', 2, 5);
+        game.load.spritesheet('mando', 'SpaceInvaders/assets/images/mando.png', 50, 32);
+        game.load.spritesheet('arrow', 'SpaceInvaders/assets/images/greenArrow.png', 85, 85);
 
-    },
-    create: function() {
+
+        game.load.audio('intro_song', 'SpaceInvaders/assets/sonidos/spaceinvaders.mp3');
+        game.load.audio('shoot', 'SpaceInvaders/assets/sonidos/shoot.wav');
+        game.load.audio('mov1', 'SpaceInvaders/assets/sonidos/fastinvader1.wav');
+        game.load.audio('mov2', 'SpaceInvaders/assets/sonidos/fastinvader2.wav');
+        game.load.audio('mov3', 'SpaceInvaders/assets/sonidos/fastinvader3.wav');
+        game.load.audio('mov4', 'SpaceInvaders/assets/sonidos/fastinvader4.wav');
+        game.load.audio('enemykill', 'SpaceInvaders/assets/sonidos/invaderkilled.wav');
+        game.load.audio('boss', 'SpaceInvaders/assets/sonidos/boss.wav');
+        game.load.audio('bosskill', 'SpaceInvaders/assets/sonidos/bosskilled.wav');
+        game.load.audio('explosion', 'SpaceInvaders/assets/sonidos/explosion.wav');
+
+	},
+	create: function() {
+
         game.stage.backgroundColor = "#000000";
         loadingLabel.kill();
-
+        
         //game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
-        textTitle = game.add.image(game.world.centerX, game.world.centerY, 'logo');
-        textTitle.width = game.world.width < game.world.height ? game.world.width:game.world.height;
-        textTitle.height = game.world.height;
-        textTitle.anchor.setTo(0.5,0.5);
+        var sprite;
+        var speed;
+        var delay = -1000;
 
-        if(game.global.exposition) {
-            label_pulsa = game.add.image(game.world.centerX, 310 * Y, 'pulsaA');
-        }
-        else if(game.device.desktop) {
-            label_pulsa = game.add.image(game.world.centerX, 310*Y, 'pulsaEspacio');
-        }
-        else {
-            label_pulsa = game.add.image(game.world.centerX, 310*Y, 'tocaPantalla');
-        }
+        for (var i = 0; i < 40; i++) {
+
+            sprite = game.add.sprite(game.world.randomX, game.world.height+10*Y, 'bala');
+            sprite.width = sprite.width*X;
+            sprite.height = sprite.height*Y;
+            speed = game.rnd.between(1000, 2000);
 
 
-        label_pulsa.width = textTitle.width-20*X;
-        label_pulsa.height = 30*Y;
-        label_pulsa.anchor.setTo(0.5,0.5);
+            //tween( atributo a modificar ) | to( { final de la animacion }, tiempo de la animación, efecto, empezar automaticamente, delay o tiempo hasta el inicio de la animación, REPETICIONES, loop alante-atras)
+            game.add.tween(sprite).to({ y: -50*Y }, speed, Phaser.Easing.Linear.None, true, delay, 10000, false);
+
+            delay += 100;
+            
+        }
+
+
+
+        var image = game.add.image(game.world.centerX, 110*Y, 'titulo');
+        image.anchor.setTo(0.5);
+        image.width = image.width*X;
+        image.height = image.height*Y;
+
+        if(game.global.exposition)
+            label_pulsa = game.add.image(game.world.centerX, image.y+image.height/2+5*Y, 'pulsaA');
+        else if(game.device.desktop)
+            label_pulsa = game.add.image(game.world.centerX, image.y+image.height/2+5*Y, 'pulsaEspacio');
+        else
+            label_pulsa = game.add.image(game.world.centerX, image.y+image.height/2+5*Y, 'tocaPantalla');
+
+        label_pulsa.anchor.setTo(0.5);
+        label_pulsa.scale.setTo(0.25,0.25);
+        label_pulsa.width = label_pulsa.width*X;
+        label_pulsa.height = label_pulsa.height*Y;
 
         game.add.tween(label_pulsa).to({ alpha: 0 }, 600, Phaser.Easing.Linear.None, true, 0, 10000, true);
 
-/*
-        textJugador2 = game.add.text(game.world.centerX, 250*Y, "2 Jugadores", { fontSize: '20px', fill: '#ffffff'});
-        textJugador2.width = textJugador2.width*X;
-        textJugador2.height = textJugador2.height*Y;
-        textJugador2.anchor.setTo(0.5,0.5);
+        image = game.add.image(game.world.centerX, label_pulsa.y+10*Y, 'reglas');
+        image.anchor.setTo(0.5);
+        image.width = image.width*X;
+        image.height = image.height*Y;
+        image.y += image.height/2 + 20;
 
-
-        arrow1 = game.add.sprite(textJugador1.x-textJugador1.width/2-35*X, textJugador1.y, 'arrow');
-        arrow1.anchor.setTo(0.5,0.5);
-        arrow1.width = 30*X;
-        arrow1.height = 25*Y;
-        arrow1.frame=0;
-
-
-        arrow2 = game.add.sprite(textJugador1.x+textJugador1.width/2+35*X, textJugador1.y, 'arrow');
-        arrow2.anchor.setTo(0.5,0.5);
-        arrow2.width = 30*X;
-        arrow2.height = 25*Y;
-        arrow2.frame=1;
-*/
-
-        var sprite;
-
-        sprite = game.add.sprite(0, 0, 'fadeIn');
+        sprite = game.add.sprite(0, 0, 'fadeOut');
         sprite.width = game.world.width;
         sprite.height = game.world.height;
 
-        //var tween = game.add.tween(sprite).to({ alpha: 0}, 2000, Phaser.Easing.Linear.None, true, 200, 0, false);
-        var tween = game.add.tween(sprite).to({ alpha: 0}, 1000, Phaser.Easing.Linear.None, true, 200, 0, false);
+        var tween = game.add.tween(sprite).to({ alpha: 0}, 2000, Phaser.Easing.Linear.None, true, 200, 0, false);
 
-        tween.onComplete.add(function(){
-            tweenComplete = true;
-
+        tween.onComplete.add(function(){  
             spacekey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
             spacekey.onDown.addOnce(this.start, this);
         }, this);
 
-        cursors = game.input.keyboard.createCursorKeys(); // entradas por teclado
-        cursors.space = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
-        /*
-        cursors.w = game.input.keyboard.addKey(Phaser.KeyCode.UP);
-        cursors.s = game.input.keyboard.addKey(Phaser.KeyCode.DOWN);
 
-        numPlayers = 1;
+        music = game.add.audio('intro_song', 1, true); //(key, volumen, loop)
+        button = game.add.button(game.world.width-55*X, 5*Y, 'button', this.actionOnClick, this);
+        button.width = button.width*X;
+        button.height = button.height*Y;
 
-        if(!game.device.desktop){
-            textJugador1.text = "Toca la pantalla para jugar";
-            textJugador2.kill();
-            arrow1.kill();
-            arrow2.kill();
-        }*/
+        if(game.global.PLAY_MUSIC){
+            music.play();
+            button.frame = 0;
+        }
+        else{
+            button.frame = 1;
+        }
+
+
+        ini_easter_egg();
     },
     start: function() {
-        game.state.start('play');
+        music.stop();
+    	game.state.start('play');
+    },
+    actionOnClick: function() {
+        if(!game.device.desktop && window.innerWidth < window.innerHeight)
+            console.log("gira el movil");
+        else {
+            game.global.PLAY_MUSIC = !game.global.PLAY_MUSIC;
+
+            music.stop();
+
+            if(game.global.PLAY_MUSIC){
+                music.play();
+                button.frame = 0;
+            }
+            else{
+                button.frame = 1;
+            }
+        }
     },
     update: function() {
 
-        if(!game.device.desktop){
-            if(game.input.pointer1.isDown && tweenComplete) {
-                tweenComplete = false;
-                this.start();
-            }
-        }
-        else if(game.device.desktop) {
+        if(!game.device.desktop && window.innerWidth >= window.innerHeight){
+            if(game.input.pointer1.isDown)
+                pointerDown = true;
 
-            if(game.global.exposition){
-                if(cursors.space.isDown){
-                    this.start();
-                }
+            if(game.input.pointer1.isUp && pointerDown){
+                pointerDown = false;
+                if(Math.abs(game.input.pointer1.positionUp.x-game.input.pointer1.positionDown.x) < 50*X &&
+                    Math.abs(game.input.pointer1.positionUp.y-game.input.pointer1.positionDown.y) < 50*Y &&
+                    (game.input.pointer1.positionUp.x < button.x || game.input.pointer1.positionUp.y > button.y+button.height))
+                        this.start();
             }
-/*
-            if (cursors.s.isDown && !isDown) {
-                arrow1.x = textJugador2.x - textJugador2.width / 2 - 35 * X;
-                arrow1.y = textJugador2.y;
-                arrow2.x = textJugador2.x + textJugador2.width / 2 + 35 * X;
-                arrow2.y = textJugador2.y;
-                numPlayers = 2;
-                isDown = true;
-            }
-            else if (!cursors.s.isDown)
-                isDown = false;
-
-            if (cursors.w.isDown && !isUp) {
-                arrow1.x = textJugador1.x - textJugador1.width / 2 - 35 * X;
-                arrow1.y = textJugador1.y;
-                arrow2.x = textJugador1.x + textJugador1.width / 2 + 35 * X;
-                arrow2.y = textJugador1.y;
-                numPlayers = 1;
-                isUp = true;
-            }
-            else if (!cursors.w.isDown)
-                isUp = false;
-*/
         }
     }
 };
+
