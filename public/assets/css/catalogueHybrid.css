@@ -1,23 +1,83 @@
 /* FontAwesome for working BootSnippet :> */
 
 
+/*----------------------------------------------------------------------------------------------------------------*/
+
+.div_img_title {
+    margin-bottom: 50px;
+    text-align: center;
+    background-size: 100% 100%;
+    background-image: url("../imagenes/background_title.png");
+}
+
+.img_title {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.tutorial {
+    text-align: center;
+}
+
+.img_100 {
+    height: 200px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+    .col-md-6 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+@media (min-width: 999px) {
+    .col-md-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+
+.mySubtitle{
+    text-align: center;
+}
+
 #miEnlace {
     color: blue;
 }
 
 .QR_class{
-    float: right;
     width: 150px;
     height: 150px;
 }
 
 #QR {
-    margin-right: 100px;
+    margin-right: 10px;
 }
 
 #inicio{
     display: block;
 }
+
+.tele {
+    position: absolute;
+    margin-top: 40px;
+    text-align: right;
+    width: 80%;
+}
+
+body{
+    height: 98vh;
+    background: #d3d6ff !important;
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
 
 #menu{
     display: none;
@@ -29,7 +89,6 @@
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 #team {
-    background: #eee !important;
 }
 
 .btn-primary:hover,
@@ -48,13 +107,6 @@
 
 section {
     padding: 60px 0;
-}
-
-section .section-title {
-    text-align: center;
-    color: #007b5e;
-    margin-bottom: 50px;
-    text-transform: uppercase;
 }
 
 #team .card {
