@@ -182,7 +182,7 @@ window.onload = function(){
 			var selected = index === 0 ? "selected":"unflip";
 
 			main.innerHTML += ''
-			+'<div class="col-6 col-sm-6 col-md-6 col-lg-4 no-padding">'
+			+'<div class="col-12 col-xs-12 my-md col-md-4 col-lg-4 no-padding">'
 				+'<div id="'+item.id+'" class="image-flip '+selected+'">'
 					+'<div class="mainflip no-padding">'
 
