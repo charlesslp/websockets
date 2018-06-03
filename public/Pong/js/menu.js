@@ -39,6 +39,7 @@ var menuState = {
         game.load.image('ball', 'Pong/assets/images/ball.png');
         game.load.image('pause_fondo', 'Pong/assets/images/transparente.png');
         game.load.image('button', 'Pong/assets/images/boton.png');
+        game.load.image('logo', 'Pong/assets/images/logo.png');
         game.load.spritesheet('arrow', 'Pong/assets/images/greenArrow.png', 85, 85);
 
 
@@ -50,18 +51,18 @@ var menuState = {
 
         //game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
-        textTitle = game.add.text(game.world.centerX, 100*Y, 'PONG', { fontSize: '20px', fill: '#ffffff'});
-        textTitle.width = textTitle.width*X;
-        textTitle.height = textTitle.height*Y;
+        textTitle = game.add.image(game.world.centerX, 100*Y, 'logo');
+        textTitle.width = 350*X;
+        textTitle.height = 100*Y;
         textTitle.anchor.setTo(0.5,0.5);
 
-        textJugador1 = game.add.text(game.world.centerX, 200*Y, '1 Jugador', { fontSize: '20px', fill: '#ffffff'});
+        textJugador1 = game.add.text(game.world.centerX, 230*Y, '1 Jugador', { fontSize: '20px', fill: '#ffffff'});
         textJugador1.width = textJugador1.width*X;
         textJugador1.height = textJugador1.height*Y;
         textJugador1.anchor.setTo(0.5,0.5);
 
 
-        textJugador2 = game.add.text(game.world.centerX, 250*Y, "2 Jugadores", { fontSize: '20px', fill: '#ffffff'});
+        textJugador2 = game.add.text(game.world.centerX, 280*Y, "2 Jugadores", { fontSize: '20px', fill: '#ffffff'});
         textJugador2.width = textJugador2.width*X;
         textJugador2.height = textJugador2.height*Y;
         textJugador2.anchor.setTo(0.5,0.5);
