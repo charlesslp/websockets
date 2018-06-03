@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a846ac8-00fa-459d-9a58-aa8b6b768c68" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/websockets.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/SpaceInvaders/assets/images/botonPause.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/SpaceInvaders/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/SpaceInvaders/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/SpaceInvaders/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/SpaceInvaders/js/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/SpaceInvaders/js/objetos/muro.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/SpaceInvaders/js/objetos/muro.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/SpaceInvaders/js/pause.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/SpaceInvaders/js/pause.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Tetris/js/pause.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Tetris/js/pause.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Tetris/js/play.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Tetris/js/play.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,11 +25,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
               <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pause.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/pause.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="177" column="43" selection-start-line="177" selection-start-column="43" selection-end-line="177" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pause.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Pong/js/pause.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="137" column="23" lean-forward="true" selection-start-line="137" selection-start-column="23" selection-end-line="141" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -61,9 +68,9 @@
         <option value="$PROJECT_DIR$/public/Tetris/js/play.js" />
         <option value="$PROJECT_DIR$/public/SpaceInvaders/js/menu.js" />
         <option value="$PROJECT_DIR$/public/Tetris/js/pause.js" />
-        <option value="$PROJECT_DIR$/public/SpaceInvaders/js/pause.js" />
         <option value="$PROJECT_DIR$/public/SpaceInvaders/js/objetos/muro.js" />
         <option value="$PROJECT_DIR$/public/SpaceInvaders/js/main.js" />
+        <option value="$PROJECT_DIR$/public/SpaceInvaders/js/pause.js" />
       </list>
     </option>
   </component>
@@ -98,6 +105,19 @@
               <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
               <item name="websockets" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="websockets" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="Pong" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="websockets" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="Pong" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
@@ -151,12 +171,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528019612664</updated>
-      <workItem from="1528019613849" duration="985000" />
+      <workItem from="1528019613849" duration="1231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="985000" />
+    <option name="totallyTimeSpent" value="1231000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -219,13 +239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/pause.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="71" column="78" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/objetos/muro.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -237,6 +250,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Pong/js/pause.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="137" column="23" lean-forward="true" selection-start-line="137" selection-start-column="23" selection-end-line="141" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/pause.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="177" column="43" selection-start-line="177" selection-start-column="43" selection-end-line="177" selection-end-column="43" />
         </state>
       </provider>
     </entry>

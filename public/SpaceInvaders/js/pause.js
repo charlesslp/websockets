@@ -172,7 +172,10 @@ function select_pause(selectEspecific){
             break;
         }
         case "salir": {
-            window.location.href = '/catalogue.html?id=' + id_juego;
+            if(game.global.exposition)
+                window.location.href = '/catalogue.html?id=' + id_juego;
+            else
+                window.location.href = '/';
             break;
         }
     }
