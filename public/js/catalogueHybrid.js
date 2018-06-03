@@ -83,9 +83,9 @@ socket.on('press', function(data){
 function getJump(){
 	var w = window.innerWidth;
 
-    if (w < 768) {
-        return 2;
-    } else if (w < 992) {
+    if (w < 910) {
+        return 1;
+    } else if (w < 1180) {
         return 2;
     } else if (w < 1200) {
         return 3;
