@@ -28,6 +28,7 @@
     margin-left: 10px;
 }
 
+
 @media (min-width: 768px) {
     .col-md-6 {
         -ms-flex: 0 0 100%;
@@ -58,7 +59,8 @@
 }
 
 #QR {
-    margin-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #inicio{
