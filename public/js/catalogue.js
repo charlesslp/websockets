@@ -23,7 +23,7 @@ window.onload = function(){
 
 	var main = document.getElementById("main");
 
-	$.getJSON( "./json/games.json", function( data ) {
+	$.getJSON( "./conf/games.json", function( data ) {
 
 		data.map(function(item){
 			main.innerHTML += ''
