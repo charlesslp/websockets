@@ -1,9 +1,138 @@
 /* FontAwesome for working BootSnippet :> */
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-#team {
-    background: #eee !important;
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+.div_img_title {
+    margin-bottom: 20px;
+    text-align: center;
+    background-size: 100% 100%;
+    background-image: url("../imagenes/background_title.png");
 }
+
+.img_title {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.img_title2 {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.img_title3 {
+    width: 70%;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.tutorial {
+    margin-left: 2%;
+    text-align: center;
+}
+
+.img_100 {
+    height: 200px;
+    width: 200px;
+}
+
+.img_50 {
+    height: 150px;
+    width: 150px;
+}
+
+.mensajes_class_left{
+    background-color: #00000045;
+    margin-right: 10px;
+}
+
+.mensajes_class_right{
+    background-color: #00000045;
+    margin-left: 10px;
+}
+
+.url_class{
+    margin-top: 30px;
+    height: 120px;
+    width: 150px;
+}
+
+@media (min-width: 768px) and (max-width: 910px){
+    .col-md-6 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .my-md {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 999px) {
+    .col-md-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 910px) and (max-width: 1180px) {
+    .col-md-4 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+
+.mySubtitle{
+    text-align: center;
+}
+
+.miEnlace {
+    color: blue;
+}
+
+.QR_class{
+    width: 150px;
+    height: 150px;
+}
+
+#QR {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#inicio{
+    display: block;
+}
+
+.tele {
+    position: absolute;
+    text-align: right;
+    width: 100%;
+}
+
+body{
+    height: 98vh;
+    background: #d3d6ff !important;
+}
+
+#main{
+    margin-top: 50px;
+}
+
+.width_50 {
+    width: 50%;
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 .btn-primary:hover,
 .btn-primary:focus {
@@ -286,33 +415,34 @@ section .section-title {
         top: 0;
         left: 50%;
 
-        margin-left:-75px;
+        margin-left:-100px;
         background: white;
     }
 
     .frontside, .frontside .card,
     .backside, .backside .card {
-        width: 150px;
-        height: 200px;
+        width: 200px;
+        height: 220px;
     }
 
     .frontside .card .card-body img {
-        width: 50px;
-        height: 50px;
+        margin-top: 10px;
+        width: 65px;
+        height: 65px;
     }
 
     .backside .card .card-body img {
-        width: 150px;
+        width: 200px;
         height: 70px;
     }
 
     .frontside .card .card-body p {
-        margin: 0.5rem;
-        font-size: 11px;
+        margin: 0.7rem;
+        font-size: 13px;
     }
 
     .frontside .card .card-body .card-title {
-        font-size: 18px;
+        font-size: 20px;
     }
 
 
@@ -327,20 +457,20 @@ section .section-title {
 
     .button-play{
         top: 78%;
-        left: 30%;
+        left: 23%;
 
-        width: 60px;
-        height: 25px;
+        width: 110px;
+        height: 35px;
 
         padding: 2px;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: 19px;
 
         box-shadow: 0px 5px 0px 0px #3C93D5;
 
     }
 
-    .backside .button-play{
+    .frontside .button-play{
         display: none;
     }
 

@@ -27,7 +27,7 @@ window.onload = function(){
 
 		data.map(function(item){
 			main.innerHTML += ''
-			+'<div class="col-6 col-sm-6 col-md-6 col-lg-4 no-padding">'
+			+'<div class="col-12 col-xs-12 my-md col-md-4 col-lg-4 no-padding">'
 				+'<div class="image-flip unflip" onclick="handleFlip(this);">'
 					+'<div class="mainflip no-padding">'
 
