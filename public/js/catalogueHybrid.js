@@ -130,13 +130,13 @@ socket.on('delete_last', function(pos){
 });
 
 var qrcode = new QRCode(document.getElementById("QR"), {
-	width : 100,
-	height : 100
+	width : 150,
+	height : 150
 });
 
 var qrcode2 = new QRCode(document.getElementById("QR2"), {
-	width : 100,
-	height : 100
+	width : 150,
+	height : 150
 });
 
 function makeCode () {

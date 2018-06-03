@@ -19,15 +19,30 @@
 }
 
 .tutorial {
+    margin-left: 2%;
     text-align: center;
 }
 
 .img_100 {
     height: 200px;
     width: 200px;
+}
+
+.mensajes_class_left{
+    background-color: #00000045;
+    margin-right: 10px;
+}
+
+.mensajes_class_right{
+    background-color: #00000045;
     margin-left: 10px;
 }
 
+.url_class{
+    margin-top: 30px;
+    height: 120px;
+    width: 150px;
+}
 
 @media (min-width: 768px) {
     .col-md-6 {
@@ -71,7 +86,7 @@
     position: absolute;
     margin-top: 40px;
     text-align: right;
-    width: 80%;
+    width: 100%;
 }
 
 body{
