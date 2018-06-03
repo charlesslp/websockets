@@ -124,7 +124,7 @@ function mostrar_menu(pos){
 socket.on('delete_last', function(pos){
 	console.log(pos);
 	pos++;
-	var parent = document.getElementById("players_connected");
+	var parent = document.getElementById("player_list");
 	var child = document.getElementById("p_"+pos);
 	parent.removeChild(child);
 });

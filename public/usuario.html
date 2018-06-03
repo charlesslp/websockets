@@ -4,19 +4,119 @@
 		<title>Player</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/Usuario/assets/main.css">
 		<script src="/socket.io/socket.io.js"></script>
         <script src="./js/phaser.js"></script>
 		<script src="/Usuario/js/resize.js"></script>
 		<script src="/Usuario/js/play.js"></script>
+        <script src="./js/jquery-3.1.1.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
 		<script src="/Usuario/js/usuario.js"></script>
 		<script src="/Usuario/js/sockets.js"></script>
 	</head>
 	<body>
-		
+
+		<div class="container" id="form_num" style="display: block">
+	        <div class="row">
+	            <div class="phone col-12">
+	                <div class="row1">
+	                    <div class="col-12">
+	                        <input disabled="true" id="telNumber" class="form-control tel" value="" />
+	                        <div class="num-pad row">
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        1
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        2
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        3
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        4
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        5
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        6
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        7
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        8
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        9
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        0
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="span4 col-4">
+	                                <div class="num">
+	                                    <div class="txt">
+	                                        <
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="clearfix">
+	                        </div>
+	                        <a onclick="goToComprobar_num(this)" class="btn btn-success btn-block flatbtn call">CONECTAR</a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+<!--
 		<div id="form_num" style="display: block">
 			<center>
-				<form onsubmit="return comprobar_num(this)">
+				<form onsubmit="return goToComprobar_num(this)">
 					<input type="text" id="numero" placeholder="Escribe aquí el número">
 					<br>
 					<input class="button" type="submit" value="enviar">
@@ -24,6 +124,7 @@
 			</center>
 		</div>
 
+-->
 		<div id="bienvenido_usuario" style="display: none">
 			<center><h3>Bienvenido!!! para jugar correctamente gira la pantalla y pulsa "aceptar"</h3></center>
 			<center><button class="button" onclick="empezar()">Aceptar</button></center>
@@ -36,6 +137,5 @@
 
     	<div id="game"> 
         </div>
-
 	</body>
 </html>

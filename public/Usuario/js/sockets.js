@@ -1,10 +1,29 @@
 
+var numero = 0;
+
+$(document).ready(function () {
+
+    $('.num').click(function () {
+        var num = $(this);
+        var text = $.trim(num.find('.txt').clone().children().remove().end().text());
+        var telNumber = $('#telNumber');
+
+        if(text === "<"){
+            var texto = telNumber.val();
+            $(telNumber).val(texto.substring(0, texto.length-1));
+        }
+        else {
+            $(telNumber).val(telNumber.val() + text);
+        }
+        numero = parseInt(telNumber.val());
+    });
+
+});
+
 var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
 var id_juego;
 var userID;
 var player_num;
-
-
 
 
 var url = new URL(document.URL)
@@ -12,6 +31,12 @@ var mi_id = url.searchParams.get("id");
 
 if(mi_id !== null){
 	comprobar_num(mi_id);
+}
+
+function goToComprobar_num(e){
+
+    window.location.href = 'https://carlosmp.com:4001/usuario.html?id='+numero;
+    return false
 }
 
 function comprobar_num(e){
@@ -80,6 +105,7 @@ socket.on("checked", function (id, num){
 	}
 	else{
 		id_juego = 0;
+		console.log("mal")
 	}
 
 });

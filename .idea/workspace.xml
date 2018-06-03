@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a846ac8-00fa-459d-9a58-aa8b6b768c68" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/public/SpaceInvaders/js/pause.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/SpaceInvaders/js/pause.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Usuario/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Usuario/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Usuario/js/sockets.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Usuario/js/sockets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/usuario.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,38 +19,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="muro.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/objetos/muro.js">
+      <file leaf-file-name="usuario.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/usuario.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Usuario/assets/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="32" column="24" lean-forward="true" selection-end-line="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sockets.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Usuario/js/sockets.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalogue.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/catalogue.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="10" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalogueHybrid.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/catalogueHybrid.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="373">
-              <caret line="75" column="56" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pause.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/pause.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="177" column="43" selection-start-line="177" selection-start-column="43" selection-end-line="177" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pause.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Pong/js/pause.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="137" column="23" lean-forward="true" selection-start-line="137" selection-start-column="23" selection-end-line="141" selection-end-column="43" />
+              <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -57,6 +69,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>vel_x</find>
+      <find>window.location.href</find>
+      <find>numero</find>
+      <find>parent</find>
+      <find>players_connected</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -71,6 +87,10 @@
         <option value="$PROJECT_DIR$/public/SpaceInvaders/js/objetos/muro.js" />
         <option value="$PROJECT_DIR$/public/SpaceInvaders/js/main.js" />
         <option value="$PROJECT_DIR$/public/SpaceInvaders/js/pause.js" />
+        <option value="$PROJECT_DIR$/public/Usuario/assets/main.css" />
+        <option value="$PROJECT_DIR$/public/Usuario/js/usuario.js" />
+        <option value="$PROJECT_DIR$/public/usuario.html" />
+        <option value="$PROJECT_DIR$/public/Usuario/js/sockets.js" />
       </list>
     </option>
   </component>
@@ -110,26 +130,26 @@
               <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
               <item name="websockets" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="Pong" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="websockets" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="Pong" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
               <item name="websockets" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
+              <item name="Usuario" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
               <item name="websockets" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
+              <item name="Usuario" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="websockets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="websockets" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="Usuario" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -171,12 +191,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528019612664</updated>
-      <workItem from="1528019613849" duration="1231000" />
+      <workItem from="1528019613849" duration="5882000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1231000" />
+    <option name="totallyTimeSpent" value="5882000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -253,6 +273,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/pause.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="177" column="43" selection-start-line="177" selection-start-column="43" selection-end-line="177" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/Pong/js/pause.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -260,10 +287,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/SpaceInvaders/js/pause.js">
+    <entry file="file://$PROJECT_DIR$/public/choose.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pong.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/catalogue.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="177" column="43" selection-start-line="177" selection-start-column="43" selection-end-line="177" selection-end-column="43" />
+        <state relative-caret-position="153">
+          <caret line="9" column="69" lean-forward="true" selection-start-line="9" selection-start-column="69" selection-end-line="10" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Usuario/js/usuario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Usuario/js/sockets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Usuario/assets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="32" column="24" lean-forward="true" selection-end-line="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/usuario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/catalogueHybrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
         </state>
       </provider>
     </entry>
