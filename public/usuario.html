@@ -5,15 +5,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="/Usuario/assets/main.css">
+		<link rel="stylesheet" type="text/css" href="./Usuario/assets/main.css">
 		<script src="/socket.io/socket.io.js"></script>
         <script src="./js/phaser.js"></script>
-		<script src="/Usuario/js/resize.js"></script>
-		<script src="/Usuario/js/play.js"></script>
+		<script src="./Usuario/js/resize.js"></script>
+		<script src="./Usuario/js/play.js"></script>
         <script src="./js/jquery-3.1.1.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>
-		<script src="/Usuario/js/usuario.js"></script>
-		<script src="/Usuario/js/sockets.js"></script>
+		<script src="./Usuario/js/usuario.js"></script>
+		<script src="./Usuario/js/sockets.js"></script>
 	</head>
 	<body>
 
@@ -113,26 +113,17 @@
 	        </div>
 	    </div>
 
-<!--
-		<div id="form_num" style="display: block">
-			<center>
-				<form onsubmit="return goToComprobar_num(this)">
-					<input type="text" id="numero" placeholder="Escribe aquí el número">
-					<br>
-					<input class="button" type="submit" value="enviar">
-				</form>
-			</center>
-		</div>
 
--->
 		<div id="bienvenido_usuario" style="display: none">
-			<center><h3>Bienvenido!!! para jugar correctamente gira la pantalla y pulsa "aceptar"</h3></center>
-			<center><button class="button" onclick="empezar()">Aceptar</button></center>
-		</div>
-
-
-		<div id="scanner" style="display: none">
-			<center><button class="button" onclick="scan()">Escanear QR</button></center>
+			<div class="center margintop">
+                <div class="title">
+                    <img id="img_bienvenido" src="assets/imagenes/bienvenido.png">
+                </div>
+                <div class="welcome">
+                    <h4>Para jugar correctamente, gira la pantalla y pulsa "Aceptar"</h4>
+                </div>
+            </div>
+			<div class="center"><button class="button btn" onclick="empezar()">Aceptar</button></div>
 		</div>
 
     	<div id="game"> 
