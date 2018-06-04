@@ -37,23 +37,23 @@ var menuState = {
         loadingLabel.height = loadingLabel.height*Y;
         loadingLabel.anchor.setTo(0.5);
 
-        game.load.image('fadeIn', 'Tetris/assets/images/token3.png');
-        game.load.image('logo', 'Tetris/assets/images/logo.png');
-        game.load.image('pulsaEspacio', 'Tetris/assets/images/pulsaEspacio.png');
-        game.load.image('pulsaA', 'Tetris/assets/images/pulsaA.png');
-        game.load.image('tocaPantalla', 'Tetris/assets/images/tocaPantalla.png');
-        game.load.spritesheet('arrow', 'Tetris/assets/images/greenArrow.png', 85, 85);
+        game.load.image('fadeIn', './assets/images/token3.png');
+        game.load.image('logo', './assets/images/logo.png');
+        game.load.image('pulsaEspacio', './assets/images/pulsaEspacio.png');
+        game.load.image('pulsaA', './assets/images/pulsaA.png');
+        game.load.image('tocaPantalla', './assets/images/tocaPantalla.png');
+        game.load.spritesheet('arrow', './assets/images/greenArrow.png', 85, 85);
 
 
-        game.load.spritesheet('token', 'Tetris/assets/images/gameboy/Tetris_sprites/tetris_sheet.png', 32, 32);
-        game.load.spritesheet('nextTok', 'Tetris/assets/images/gameboy/Tetris_sprites/next_token_sheet.png', 96, 128);
-        game.load.image('background', 'Tetris/assets/images/gameboy/fondo.png');
-        game.load.image('line', 'Tetris/assets/images/token3.png');
-        game.load.image('pause_fondo', 'Tetris/assets/images/transparente.png');
-        game.load.image('gameOver', 'Tetris/assets/images/gameOver.png');
-        game.load.spritesheet('arrow', 'Tetris/assets/images/greenArrow.png', 85, 85);
-        game.load.image('button', 'Tetris/assets/images/boton.png');
-        game.load.image('fadeOut', 'Tetris/assets/images/fadeOut.png');
+        game.load.spritesheet('token', './assets/images/gameboy/Tetris_sprites/tetris_sheet.png', 32, 32);
+        game.load.spritesheet('nextTok', './assets/images/gameboy/Tetris_sprites/next_token_sheet.png', 96, 128);
+        game.load.image('background', './assets/images/gameboy/fondo.png');
+        game.load.image('line', './assets/images/token3.png');
+        game.load.image('pause_fondo', './assets/images/transparente.png');
+        game.load.image('gameOver', './assets/images/gameOver.png');
+        game.load.spritesheet('arrow', './assets/images/greenArrow.png', 85, 85);
+        game.load.image('button', './assets/images/boton.png');
+        game.load.image('fadeOut', './assets/images/fadeOut.png');
 
     },
     create: function() {

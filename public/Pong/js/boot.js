@@ -4,11 +4,11 @@ var primeraPortrait;
 var bootState = {
     preload: function(){
 
-        game.load.image('landscape', 'Pong/assets/images/landscape.png');
-        game.load.image('phone', 'Pong/assets/images/phone.png');
-        game.load.image('recarga', 'Pong/assets/images/recarga.png');
-        game.load.image('recarga2', 'Pong/assets/images/recarga2.png');
-        game.load.image('gira_fondo', 'Pong/assets/images/gira_fondo.png');
+        game.load.image('landscape', './assets/images/landscape.png');
+        game.load.image('phone', './assets/images/phone.png');
+        game.load.image('recarga', './assets/images/recarga.png');
+        game.load.image('recarga2', './assets/images/recarga2.png');
+        game.load.image('gira_fondo', './assets/images/gira_fondo.png');
     },
     create: function() {
 

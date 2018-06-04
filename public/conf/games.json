@@ -4,7 +4,7 @@
 		"title": "Space Invaders",
 		"short_desc": "El juego de recreativas más famoso del mundo.",
 		"long_desc": "Space Invaders es un videojuego de arcade lanzado en 1978. El objetivo es eliminar oleadas de alienígenas y obtener la mayor cantidad de puntos posible.",
-		"url": "https://carlosmp.com:4001/spaceinvaders.html",
+		"url": "https://carlosmp.com:4001/SpaceInvaders",
 		"logo": "./assets/imagenes/spaceInvadersLogo.png",
 		"info_img": "./assets/imagenes/spaceInvadersInfo.png"
 	},
@@ -13,7 +13,7 @@
 		"title": "Pong",
 		"short_desc": "Una vez que empiezas solo quieres seguir jugando.",
 		"long_desc": "Pong es un juego de deportes en dos dimensiones lanzado en 1972 que simula un tenis de mesa (o ping pong). Se puede jugar solo o acompañado.",
-		"url": "https://carlosmp.com:4001/pong.html",
+		"url": "https://carlosmp.com:4001/Pong",
 		"logo": "./assets/imagenes/pongLogo.png",
 		"info_img": "./assets/imagenes/pongInfo.png"
 	},
@@ -22,7 +22,7 @@
 		"title": "Tetris",
 		"short_desc": "Para los amantes de los rompecabezas y de la nostalgia.",
 		"long_desc": "Tetris es un videojuego de puzzle lanzado en 1984. Tiene el récord de ser el juego completamente funcional más grande del mundo.",
-		"url": "https://carlosmp.com:4001/tetris.html",
+		"url": "https://carlosmp.com:4001/Tetris",
 		"logo": "./assets/imagenes/tetrisLogo.png",
 		"info_img": "./assets/imagenes/tetrisInfo.png"
 	}

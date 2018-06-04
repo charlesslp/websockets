@@ -35,12 +35,12 @@ var menuState = {
         loadingLabel.height = loadingLabel.height*Y;
         loadingLabel.anchor.setTo(0.5);
 
-        game.load.image('player', 'Pong/assets/images/player.png');
-        game.load.image('ball', 'Pong/assets/images/ball.png');
-        game.load.image('pause_fondo', 'Pong/assets/images/transparente.png');
-        game.load.image('button', 'Pong/assets/images/boton.png');
-        game.load.image('logo', 'Pong/assets/images/logo.png');
-        game.load.spritesheet('arrow', 'Pong/assets/images/greenArrow.png', 85, 85);
+        game.load.image('player', './assets/images/player.png');
+        game.load.image('ball', './assets/images/ball.png');
+        game.load.image('pause_fondo', './assets/images/transparente.png');
+        game.load.image('button', './assets/images/boton.png');
+        game.load.image('logo', './assets/images/logo.png');
+        game.load.spritesheet('arrow', './assets/images/greenArrow.png', 85, 85);
 
 
 

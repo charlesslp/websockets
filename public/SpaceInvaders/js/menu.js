@@ -4,11 +4,11 @@ var primeraPortrait;
 var bootState = {
     preload: function(){
 
-        game.load.image('landscape', 'SpaceInvaders/assets/letras/landscape.png');
-        game.load.image('phone', 'SpaceInvaders/assets/images/phone.png');
-        game.load.image('recarga', 'SpaceInvaders/assets/letras/recarga.png');
-        game.load.image('recarga2', 'SpaceInvaders/assets/images/recarga2.png');
-        game.load.image('gira_fondo', 'SpaceInvaders/assets/images/gira_fondo.png');
+        game.load.image('landscape', './assets/letras/landscape.png');
+        game.load.image('phone', './assets/images/phone.png');
+        game.load.image('recarga', './assets/letras/recarga.png');
+        game.load.image('recarga2', './assets/images/recarga2.png');
+        game.load.image('gira_fondo', './assets/images/gira_fondo.png');
     },
     create: function() {
 
@@ -78,43 +78,43 @@ var menuState = {
         loadingLabel.anchor.setTo(0.5);
         
 
-        game.load.image('titulo', 'SpaceInvaders/assets/images/titulo.png');
-        game.load.image('fadeOut', 'SpaceInvaders/assets/images/fadeOut.png');
-        game.load.image('pulsaEspacio', 'SpaceInvaders/assets/letras/pulsaEspacio.png');
-        game.load.image('pulsaA', 'SpaceInvaders/assets/letras/pulsaA.png');
-        game.load.image('tocaPantalla', 'SpaceInvaders/assets/letras/tocaPantalla.png');
-		game.load.image('gameOver', 'SpaceInvaders/assets/letras/gameOver.png');
-		game.load.image('reglas', 'SpaceInvaders/assets/images/reglas.png');
-        game.load.image('line', 'SpaceInvaders/assets/images/line.png');
-        game.load.image('boton_disparo', 'SpaceInvaders/assets/images/boton_disparo2.png');
-        game.load.image('pause_fondo', 'SpaceInvaders/assets/images/transparente.png');
+        game.load.image('titulo', './assets/images/titulo.png');
+        game.load.image('fadeOut', './assets/images/fadeOut.png');
+        game.load.image('pulsaEspacio', './assets/letras/pulsaEspacio.png');
+        game.load.image('pulsaA', './assets/letras/pulsaA.png');
+        game.load.image('tocaPantalla', './assets/letras/tocaPantalla.png');
+		game.load.image('gameOver', './assets/letras/gameOver.png');
+		game.load.image('reglas', './assets/images/reglas.png');
+        game.load.image('line', './assets/images/line.png');
+        game.load.image('boton_disparo', './assets/images/boton_disparo2.png');
+        game.load.image('pause_fondo', './assets/images/transparente.png');
 
 
-        game.load.image('buttonPause', 'SpaceInvaders/assets/images/botonPause.png');
-        game.load.spritesheet('button', 'SpaceInvaders/assets/images/button.png', 50, 50);
-        game.load.spritesheet('player', 'SpaceInvaders/assets/images/player.png', 26, 16);
-        game.load.spritesheet('muro', 'SpaceInvaders/assets/images/muro4.png', 24, 24);
-        game.load.spritesheet('enemy', 'SpaceInvaders/assets/images/enemies.png', 24, 24);
-        game.load.spritesheet('boss', 'SpaceInvaders/assets/images/boss.png', 35, 17);
-        game.load.spritesheet('misil1', 'SpaceInvaders/assets/images/e_bullet1.png', 8, 11);
-        game.load.spritesheet('misil2', 'SpaceInvaders/assets/images/e_bullet2.png', 8, 11);
-        game.load.spritesheet('misil3', 'SpaceInvaders/assets/images/e_bullet3.png', 8, 11);
-        game.load.spritesheet('explosion', 'SpaceInvaders/assets/images/explosion.png', 11, 11);
-        game.load.spritesheet('bala', 'SpaceInvaders/assets/images/bullet.png', 2, 5);
-        game.load.spritesheet('mando', 'SpaceInvaders/assets/images/mando.png', 50, 32);
-        game.load.spritesheet('arrow', 'SpaceInvaders/assets/images/greenArrow.png', 85, 85);
+        game.load.image('buttonPause', './assets/images/botonPause.png');
+        game.load.spritesheet('button', './assets/images/button.png', 50, 50);
+        game.load.spritesheet('player', './assets/images/player.png', 26, 16);
+        game.load.spritesheet('muro', './assets/images/muro4.png', 24, 24);
+        game.load.spritesheet('enemy', './assets/images/enemies.png', 24, 24);
+        game.load.spritesheet('boss', './assets/images/boss.png', 35, 17);
+        game.load.spritesheet('misil1', './assets/images/e_bullet1.png', 8, 11);
+        game.load.spritesheet('misil2', './assets/images/e_bullet2.png', 8, 11);
+        game.load.spritesheet('misil3', './assets/images/e_bullet3.png', 8, 11);
+        game.load.spritesheet('explosion', './assets/images/explosion.png', 11, 11);
+        game.load.spritesheet('bala', './assets/images/bullet.png', 2, 5);
+        game.load.spritesheet('mando', './assets/images/mando.png', 50, 32);
+        game.load.spritesheet('arrow', './assets/images/greenArrow.png', 85, 85);
 
 
-        game.load.audio('intro_song', 'SpaceInvaders/assets/sonidos/spaceinvaders.mp3');
-        game.load.audio('shoot', 'SpaceInvaders/assets/sonidos/shoot.wav');
-        game.load.audio('mov1', 'SpaceInvaders/assets/sonidos/fastinvader1.wav');
-        game.load.audio('mov2', 'SpaceInvaders/assets/sonidos/fastinvader2.wav');
-        game.load.audio('mov3', 'SpaceInvaders/assets/sonidos/fastinvader3.wav');
-        game.load.audio('mov4', 'SpaceInvaders/assets/sonidos/fastinvader4.wav');
-        game.load.audio('enemykill', 'SpaceInvaders/assets/sonidos/invaderkilled.wav');
-        game.load.audio('boss', 'SpaceInvaders/assets/sonidos/boss.wav');
-        game.load.audio('bosskill', 'SpaceInvaders/assets/sonidos/bosskilled.wav');
-        game.load.audio('explosion', 'SpaceInvaders/assets/sonidos/explosion.wav');
+        game.load.audio('intro_song', './assets/sonidos/spaceinvaders.mp3');
+        game.load.audio('shoot', './assets/sonidos/shoot.wav');
+        game.load.audio('mov1', './assets/sonidos/fastinvader1.wav');
+        game.load.audio('mov2', './assets/sonidos/fastinvader2.wav');
+        game.load.audio('mov3', './assets/sonidos/fastinvader3.wav');
+        game.load.audio('mov4', './assets/sonidos/fastinvader4.wav');
+        game.load.audio('enemykill', './assets/sonidos/invaderkilled.wav');
+        game.load.audio('boss', './assets/sonidos/boss.wav');
+        game.load.audio('bosskill', './assets/sonidos/bosskilled.wav');
+        game.load.audio('explosion', './assets/sonidos/explosion.wav');
 
 	},
 	create: function() {
