@@ -80,7 +80,7 @@ socket.on('press', function(data){
 });
 
 socket.on('refresh_page', function(id){
-    window.location.replace(HOME_URL);
+    window.location.replace(HOME_URL+"/catalogue.html");
 });
 
 socket.on('checked_id', function(pos){

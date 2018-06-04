@@ -117,6 +117,6 @@ socket.on('press', function(data){
 });
 
 socket.on('refresh_page', function(id){
-    window.location.replace("http://carlosmp.com:4001");
+    window.location.replace(HOME_URL+"/catalogue.html");
 });
 
