@@ -1,6 +1,6 @@
 //Pong
 
-var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
+var socket = io.connect(HOME_URL, {'forceNew': true});
 var fromSocket = false;
 var id_juego;
 

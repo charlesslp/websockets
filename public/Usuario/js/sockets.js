@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 });
 
-var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
+var socket = io.connect(HOME_URL, {'forceNew': true});
 var id_juego;
 var userID;
 var player_num;
@@ -35,7 +35,7 @@ if(mi_id !== null){
 
 function goToComprobar_num(e){
 
-    window.location.href = 'https://carlosmp.com:4001/usuario.html?id='+numero;
+    window.location.href = HOME_URL+'/usuario.html?id='+numero;
     return false
 }
 
@@ -124,6 +124,6 @@ socket.on("change_order", function (data){
 
 socket.on("refresh_user", function (){
 
-	window.location.replace("https://carlosmp.com:4001/usuario.html");
+	window.location.replace(HOME_URL+"/usuario.html");
 
 });

@@ -1,4 +1,4 @@
-var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
+var socket = io.connect(HOME_URL, {'forceNew': true});
 
 var id_juego;
 var url = "";
@@ -140,11 +140,11 @@ var qrcode2 = new QRCode(document.getElementById("QR2"), {
 });
 
 function makeCode () {
-	qrcode.makeCode("https://carlosmp.com:4001/usuario.html?id="+id_juego);
-	qrcode2.makeCode("https://carlosmp.com:4001/usuario.html?id="+id_juego);
+	qrcode.makeCode(HOME_URL+"/usuario.html?id="+id_juego);
+	qrcode2.makeCode(HOME_URL+"/usuario.html?id="+id_juego);
 }
 
 socket.on('refresh_page', function(){
-	window.location.replace("https://carlosmp.com:4001/catalogue.html");
+	window.location.replace(HOME_URL+"/catalogue.html");
 });
 

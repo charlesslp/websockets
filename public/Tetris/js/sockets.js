@@ -1,6 +1,6 @@
 //Tetris
 
-var socket = io.connect('https://carlosmp.com:4001', {'forceNew': true});
+var socket = io.connect(HOME_URL, {'forceNew': true});
 var fromSocket = false;
 var id_juego;
 
@@ -94,7 +94,7 @@ socket.on('press', function(data){
 });
 
 socket.on('refresh_page', function(id){
-    window.location.replace("https://carlosmp.com:4001");
+    window.location.replace(HOME_URL);
 });
 
 socket.on('checked_id', function(pos){

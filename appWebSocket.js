@@ -15,6 +15,21 @@ var certificado = fs.readFileSync("../../carlosmp_com.crt");
 
 
 
+/*
+var config = require("./public/config/configuration");
+
+if(config.URL_CONFIG.protocol === "https") {
+
+    var caBundle = fs.readFileSync(config.CERTIFICATE_PATH.caBundle);
+    var clavePrivada = fs.readFileSync(config.CERTIFICATE_PATH.clavePrivada);
+    var certificado = fs.readFileSync(config.CERTIFICATE_PATH.certificado);
+
+    server = require("https").createServer({ca: caBundle, key: clavePrivada, cert: certificado}, app);
+}
+else {
+    server = require("http").Server(app);
+}
+*/
 
 var server = require("https").createServer({ ca: caBundle, key: clavePrivada, cert: certificado },app);
 //var server = require("http").Server(app);
