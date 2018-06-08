@@ -196,36 +196,37 @@ window.onload = function(){
 	$.getJSON( "./conf/games.json", function( data ) {
 
 		data.map(function(item, index){
-			juegos.push(item);
-			var selected = index === 0 ? "selected":"unflip";
+            if(item.exposition_allow){
+                var selected = juegos.length === 0 ? "selected":"unflip";
+                juegos.push(item);
+                main.innerHTML += ''
+                +'<div class="col-12 col-xs-12 my-md col-md-4 col-lg-4 no-padding">'
+                    +'<div id="'+item.id+'" class="image-flip '+selected+'" data-index="'+index+'">'
+                        +'<div class="mainflip no-padding">'
 
-			main.innerHTML += ''
-			+'<div class="col-12 col-xs-12 my-md col-md-4 col-lg-4 no-padding">'
-				+'<div id="'+item.id+'" class="image-flip '+selected+'" data-index="'+index+'">'
-					+'<div class="mainflip no-padding">'
+                            +'<div class="frontside">'
+                                +'<div class="card">'
+                                    +'<div class="card-body text-center no-padding">'
+                                        +'<p><img class="" src="'+item.logo+'" alt="card image"></p>'
+                                        +'<p class="card-title h4">'+item.title+'</p>'
+                                        +'<p class="card-text">'+item.short_desc+'</p>'
+                                    +'</div>'
+                                +'</div>'
+                            +'</div>'
 
-						+'<div class="frontside">'
-							+'<div class="card">'
-								+'<div class="card-body text-center no-padding">'
-									+'<p><img class="" src="'+item.logo+'" alt="card image"></p>'
-									+'<p class="card-title h4">'+item.title+'</p>'
-									+'<p class="card-text">'+item.short_desc+'</p>'
-						        +'</div>'
-							+'</div>'
-						+'</div>'
+                            +'<div class="backside">'
+                                +'<div class="card">'
+                                    +'<div class="card-body text-center no-padding">'
+                                        +'<img class="" src="'+item.info_img+'" alt="card image">'
+                                        +'<p class="card-text">'+item.long_desc+'</p>'
+                                    +'</div>'
+                                +'</div>'
+                            +'</div>'
 
-						+'<div class="backside">'
-							+'<div class="card">'
-								+'<div class="card-body text-center no-padding">'
-									+'<img class="" src="'+item.info_img+'" alt="card image">'
-									+'<p class="card-text">'+item.long_desc+'</p>'
-								+'</div>'
-							+'</div>'
-						+'</div>'
-
-					+'</div>'
-				+'</div>'
-			+'</div>';
+                        +'</div>'
+                    +'</div>'
+                +'</div>';
+            }
 		});
 	});
 
