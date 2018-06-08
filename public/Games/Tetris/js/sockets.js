@@ -1,7 +1,6 @@
 //Tetris
 
 var socket = io.connect(HOME_URL, {'forceNew': true});
-var fromSocket = false;
 var id_juego;
 
 socket.on("conectado", function(){
@@ -27,7 +26,6 @@ socket.on('press', function(data){
             case "A_on": {
                 if(!isPaused) {
                     cursors.space.isDown = true;
-                    fromSocket = true;
                 }
                 else {
                     select_pause();
@@ -36,32 +34,26 @@ socket.on('press', function(data){
             }
             case "A_off": {
                 cursors.space.isDown = false;
-                fromSocket = true;
                 break;
             }
             case "left_on": {
                 cursors.left.isDown = true;
-                fromSocket = true;
                 break;
             }
             case "right_on": {   
                 cursors.right.isDown = true;
-                fromSocket = true;
                 break;
             }
             case "down_on": {
                 cursors.down.isDown = true;
-                fromSocket = true;
                 break;
             }
             case "left_off": {   
                 cursors.left.isDown = false;
-                fromSocket = true;
                 break;
             }
             case "right_off": {
                 cursors.right.isDown = false;
-                fromSocket = true;
                 break;
             }
             case "start_off": {
@@ -72,12 +64,10 @@ socket.on('press', function(data){
             case "down_off": {
                 if(isPaused){
                     cursors.down.isDown = false;
-                    fromSocket = true;
                     moveArrow("down"); // en main.js
                 }
                 else{
                     cursors.down.isDown = false;
-                    fromSocket = true;
                 }
                 break;
             }
