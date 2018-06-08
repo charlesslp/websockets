@@ -42,7 +42,6 @@ socket.on('press', function(data){
 
 		switch(data.userdata.key){
 			case "A_on": {
-				console.log("ey")
 				window.location.href = juegos[juego_seleccionado].url+'?id=' + id_juego + '&mode=exposition';
 				break;
 			}
@@ -112,7 +111,6 @@ function mostrar_menu(pos){
 
 		juego_seleccionado = 0;
 
-		console.log(juegos);
 	}
 	else {
 
@@ -166,8 +164,6 @@ function handleFlip(id_selected){
     else if(getJump() === 3 && (element.dataset.index === "0" || element.dataset.index === "1" || element.dataset.index === "2")){
         offset = 450;
     }
-
-    console.log(offset, getJump(), element.dataset.index);
 
     $('html, body').stop();
     

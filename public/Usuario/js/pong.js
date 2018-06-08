@@ -88,7 +88,6 @@ function socket_pong(){
 			up.addEventListener("touchstart", function(){
 				up.style.backgroundImage = "url(Usuario/assets/left_press.png)";
 				press("up_down_PG");
-				console.log("up_down_PG");
 			}, false);
 			up.addEventListener("touchend", function(){
 				up.style.backgroundImage = "url(Usuario/assets/left.png)";

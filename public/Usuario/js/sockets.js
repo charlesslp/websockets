@@ -51,18 +51,6 @@ function comprobar_num(e){
 	return false;
 }
 
-function selectForm(){
-	console.log("seleccionado Form");
-
-	document.getElementById("selecciona").style.display = 'none';
-	document.getElementById("form_num").style.display = 'block';
-}
-
-function selectQR(){
-	console.log("seleccionado QRc");
-	window.location.href = "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end";
-}
-
 function empezar(){
 
 	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);

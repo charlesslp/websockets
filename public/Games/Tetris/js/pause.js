@@ -82,8 +82,6 @@ function un_pause(){
 
 function moveArrow(order){
 
-    console.log(order)
-
     if(order === "up"){
         if(selectPause === "salir"){
             selec_continue();

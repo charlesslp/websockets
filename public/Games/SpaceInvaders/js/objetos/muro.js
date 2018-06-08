@@ -116,8 +116,5 @@
             boton_disparo.height = 60*Y;
         }
 
-        function actionOnClick(){
-            console.log("hola");
-        }
 
     }
