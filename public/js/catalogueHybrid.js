@@ -25,6 +25,15 @@ socket.on("conectado", function(){
 
 });
 
+socket.on("num_usuarios_partida", function(numUsers){
+
+	for (var i = 2; i <= numUsers; i++) {
+		
+		var myHeader = document.getElementById("player_list");
+		myHeader.innerHTML += '<h5 id="p_'+i+'" class="player">Player '+i+'</h5>';
+	}
+
+});
 
 socket.on('press', function(data){
 

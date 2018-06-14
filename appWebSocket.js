@@ -84,6 +84,11 @@ io.on('connection', function(socket){
 		sockets_juego[id_nuevo] = socket;
 		delete sockets_juego[rand];
 		rand = id_nuevo;
+		if(ids_users[id_nuevo] && ids_users[id_nuevo].length)
+			socket.emit("num_usuarios_partida", ids_users[id_nuevo].length);
+		else
+			socket.emit("num_usuarios_partida", 1);
+
 		console.log("connected", rand);
 	});
 
